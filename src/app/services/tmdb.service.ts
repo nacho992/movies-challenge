@@ -18,12 +18,12 @@ export class TmdbService {
 
   public getNowPlaying(): Observable<ResponseMovies>{
     const headers = this.setAuthorization();
-    return this.http.get<ResponseMovies>(`${this.BASE_URL}movie/now_playing?api_key=${this.API_KEY}&language=es-ES&page=1`)
+    return this.http.get<ResponseMovies>(`${this.BASE_URL}movie/now_playing?api_key=${this.API_KEY}&language=es-ES&page=1`, {headers:headers})
   }
 
   public getPopularList(): Observable<ResponseMovies>{
     const headers = this.setAuthorization();
-    return this.http.get<ResponseMovies>(`${this.BASE_URL}movie/popular?api_key=${this.API_KEY}&language=es-ES&page=1`)
+    return this.http.get<ResponseMovies>(`${this.BASE_URL}movie/popular?api_key=${this.API_KEY}&language=es-ES&page=1`, {headers:headers})
   }
 
   private setAuthorization(): HttpHeaders{
