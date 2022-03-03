@@ -31,7 +31,7 @@ export class TmdbService {
      'Authorization' : `Bearer ${this.token}`,
      'Content-Type': 'application/json;charset=utf-8',
      'Access-Control-Allow-Origin' : "*",
-     'method': 'GET',
+     'method': 'GET, OPTIONS ',
     })
     return headers
   }
