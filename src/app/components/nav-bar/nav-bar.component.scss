@@ -1,0 +1,25 @@
+h3{
+    background: -webkit-linear-gradient(#eee, #aa0fe4);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+img{
+    border-radius: 50px 50px 50px 50px;
+    width: 60px;
+    height: 60px;
+    filter: brightness(151%);
+}
+
+a {
+    color: #050506;
+    text-decoration: none;
+}
+li{
+    list-style:none;
+    padding: 5px
+}
+ul{
+    padding: 0px;
+}

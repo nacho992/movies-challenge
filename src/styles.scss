@@ -6,3 +6,11 @@
 * {
     font-family: "Poppins", sans-serif;
   }
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+
+
+/* Colors */
+:root{
+  --secondary-color: #aa0fe4;
+}
