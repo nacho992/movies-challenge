@@ -32,6 +32,7 @@ export class TmdbService {
      'Content-Type': 'application/json;charset=utf-8',
      'Access-Control-Allow-Origin' : "*",
      'method': 'GET, OPTIONS ',
+     'Access-Control-Allow-Headers': 'Origin, Content-Type, Accept, Authorization, X-Request-With'
     })
     return headers
   }
