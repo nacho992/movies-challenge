@@ -10,6 +10,7 @@ import { HomeModule } from './pages/home/home.module';
 import { HomeComponent } from './pages/home/home.component';
 import { WelcomeSearchComponent } from './components/welcome-search/welcome-search.component';
 import { SlidesCardsComponent } from './components/slides-cards/slides-cards.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { SlidesCardsComponent } from './components/slides-cards/slides-cards.com
     HomeModule,
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
