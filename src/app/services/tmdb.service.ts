@@ -29,7 +29,7 @@ export class TmdbService {
   private setAuthorization(): HttpHeaders{
     const headers = new HttpHeaders({
      'Authorization' : `Bearer ${this.token}`,
-     'Content-Type': 'application/json;charset=utf-8, text/plain',
+     'Content-Type': 'application/json;charset=utf-8, text/plain, text/html; charset=utf-8',
      'Access-Control-Allow-Origin' : "*",
      'method': 'GET',
     })
