@@ -16,7 +16,10 @@ export class TmdbService {
   private API_KEY = environment.api_key
   private token = environment.token
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { 
+    const headers = this.setAuthorization();
+    this.http.get<ResponseMovies>(`${this.BASE_URL}movie/now_playing?api_key=${this.API_KEY}&language=es-ES&page=1`, {headers:headers})
+   }
 
   public getNowPlaying(): Observable<ResponseMovies>{
     return this.http.get<ResponseMovies>(`${this.BASE_URL}movie/now_playing?api_key=${this.API_KEY}&language=es-ES&page=1`)
@@ -39,14 +42,14 @@ export class TmdbService {
     return this.http.get<ResponseTrending>(`${this.BASE_URL}/trending/all/day?api_key=${this.API_KEY}&language=es-ES&page=1`)
   }
 
-  /* private setAuthorization(): HttpHeaders{
+  private setAuthorization(): HttpHeaders{
     const headers = new HttpHeaders({
      'Authorization' : `Bearer ${this.token}`,
-     'Content-Type': 'application/json;charset=utf-8',
+     'Content-Type': 'application/json;charset=utf-8, text/plain',
      'Access-Control-Allow-Origin' : "*",
      'method': 'GET, OPTIONS ',
      'Access-Control-Allow-Headers': 'Origin, Content-Type, Accept, Authorization, X-Request-With'
     })
     return headers
-  } */
+  }
 }
