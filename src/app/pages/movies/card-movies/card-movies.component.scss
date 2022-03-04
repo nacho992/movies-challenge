@@ -1,0 +1,45 @@
+.card {
+    --background:#FFFFFF;
+    --text:black;
+    height: 250px;
+    width: 170px;
+    box-shadow:0 0 2rem -1rem rgba(0,0,0,.05);
+    border-radius: 0.50rem;
+    margin: 0.75rem;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
+    &:hover {
+        box-shadow: 0 1px 20px var(--secondary-color);
+        transition: all 0.5s ease-out;
+        cursor: pointer;
+    }
+    img{
+        border-radius: 5px;
+        height: 160px;
+        object-fit: cover;
+    }
+    p{
+        font-size: 0.80rem;
+        color: var(--secondary-color);
+    }
+    .card__rating {
+        $size: 30px;
+        bottom: $size/10;
+        font-size: 12px;
+        font-weight: 700;
+        line-height: $size;
+        position: absolute;
+        right: $size/10;
+        text-align: center;
+        width: $size;
+        &:after {
+            border-radius: 100%;
+            border: 2px solid #7b7cee;
+            content: '';
+            height: 100%;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 100%;
+        }
+      }
+}

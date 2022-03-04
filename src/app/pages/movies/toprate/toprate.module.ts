@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { ToprateRoutingModule } from './toprate-routing.module';
 import { ToprateComponent } from './toprate.component';
-
+import { CardMoviesModule } from '../card-movies/card-movies.module';
 
 @NgModule({
   declarations: [
@@ -11,7 +11,8 @@ import { ToprateComponent } from './toprate.component';
   ],
   imports: [
     CommonModule,
-    ToprateRoutingModule
+    ToprateRoutingModule,
+    CardMoviesModule
   ]
 })
 export class ToprateModule { }

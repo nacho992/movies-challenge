@@ -6,12 +6,14 @@ import { SlidesCardsModule } from 'src/app/components/slides-cards/slides-cards.
 import { HomeRoutingModule } from './home-routing.module';
 import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule } from '@angular/router';
+import { FooterComponent } from 'src/app/components/footer/footer.component';
 
 
 @NgModule({
   declarations: [
     WelcomeSearchComponent,
     HomeComponent,
+    FooterComponent
   ],
 
   imports: [

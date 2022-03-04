@@ -1,0 +1,12 @@
+<div class="card">
+    <img src="https://image.tmdb.org/t/p/w500/{{movie.backdrop_path}}" alt="" />
+  <div class="card-body">
+    <div class="card_title"*ngIf="movie['name']">{{movie['name'] | slice:0:30}}</div>
+    <div class="card_title"*ngIf="movie['title']">{{movie['title'] | slice:0:30}}</div>
+    <p *ngIf="movie['release_date']">{{movie['release_date']}}</p>
+    <div class="card__rating">
+        {{movie['vote_average']}}
+    </div> 
+  </div>
+       
+</div>

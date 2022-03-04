@@ -1,1 +1,10 @@
-<p>toprate works!</p>
+<div class="wrapper">
+    <h1 *ngIf="movies.length > 0">Mejores calificadas</h1>
+    <div class="grid">
+
+        <article *ngFor="let movie of movies">
+          <app-card-movies [movie]="movie"></app-card-movies>
+        </article>
+
+    </div>
+</div>
