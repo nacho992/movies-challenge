@@ -26,25 +26,11 @@ export class TmdbService {
   public getPopularMovies(): Observable<ResponseMovies>{
     const headers = this.setAuthorization();
     return this.http.get<ResponseMovies>(`${this.BASE_URL}movie/popular?api_key=${this.API_KEY}&language=es-ES&page=1`, {headers:headers})
-/*            .pipe(tap(
-             ( res:ResponseMovies ) => {
-               if (res) {
-                 this.popularMovie.next(res.results)
-               }
-             }
-           )) */
   }
 
   public getPopularTv(): Observable<ResponsePopularTv>{
     const headers = this.setAuthorization();
     return this.http.get<ResponsePopularTv>(`${this.BASE_URL}tv/popular?api_key=${this.API_KEY}&language=es-ES&page=1`, {headers:headers})
-  /*         .pipe(tap(
-            ( res:ResponsePopularTv ) => {
-              if (res) {
-                this.popularTv.next(res.results)
-              }
-            }
-          )) */
   }
 
   public getTrending(): Observable<ResponseTrending> {
