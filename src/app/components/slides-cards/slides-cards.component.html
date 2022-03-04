@@ -1,9 +1,21 @@
-<div class="container-fluid">
+<div class="container-fluid" *ngIf="popularMovies">
+	<div class="scrolling-wrapper row flex-row flex-nowrap mt-4 pb-4 pt-2">
 
-    <div class="scrolling-wrapper row flex-row flex-nowrap mt-4 pb-4 pt-2">
-			
-			<div class="col-3" *ngFor="let card of [10,1,2,3,4,4]">
-				<app-card></app-card>
+		<div class="container">
+			<div class="col-3" *ngFor="let item of popularMovies">
+				<app-card [popularMovies]="item"></app-card>
 			</div>
-    </div>
+		</div>
+	</div>
+</div>
+
+<div class="container-fluid" *ngIf="trending">
+	<div class="scrolling-wrapper row flex-row flex-nowrap mt-4 pb-4 pt-2">
+
+		<div class="container">
+			<div class="col-3" *ngFor="let item of trending">
+				<app-card [trending]="item"></app-card>
+			</div>
+		</div>
+	</div>
 </div>

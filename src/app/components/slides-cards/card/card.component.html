@@ -1,1 +1,10 @@
-<div class="card card-block"></div>
+
+<div *ngIf="popularMovie$ | async as popularMovies" class="card card-block">
+    <h1 *ngIf="popularMovies['name']">{{popularMovies['name']}}</h1>
+    <h1 *ngIf="popularMovies['title']">{{popularMovies['title']}}</h1>
+</div>
+
+<div *ngIf="trending$ | async as trending" class="card card-block">
+    <h1 *ngIf="trending['name']">{{trending['name']}}</h1>
+    <h1 *ngIf="trending['title']">{{trending['title']}}</h1>
+</div>

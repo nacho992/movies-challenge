@@ -2,7 +2,6 @@
     padding: 40px 40px 8px 40px;
     max-width: 1200px;
     margin: auto;
-    display: flex;
     justify-content: flex-start;
     align-items: center;
     align-content: center;
@@ -17,7 +16,10 @@
         a {
             border-radius: 30px;
         }
-        .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+        .nav{
+            padding: 4px 4px 4px 12px;
+        }
+        .nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
             color: #fff;
             background-color: var(--secondary-color);
         }

@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
-
+import { tap } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { ResponseMovies } from '../interfaces/ResponseMovies.interface';
+import { ResponseTrending } from '../interfaces/ResponseTrending.interface';
+import { ResponsePopularTv } from '../interfaces/ResponsePopularTv.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -21,9 +23,33 @@ export class TmdbService {
     return this.http.get<ResponseMovies>(`${this.BASE_URL}movie/now_playing?api_key=${this.API_KEY}&language=es-ES&page=1`, {headers:headers})
   }
 
-  public getPopularList(): Observable<ResponseMovies>{
+  public getPopularMovies(): Observable<ResponseMovies>{
     const headers = this.setAuthorization();
     return this.http.get<ResponseMovies>(`${this.BASE_URL}movie/popular?api_key=${this.API_KEY}&language=es-ES&page=1`, {headers:headers})
+/*            .pipe(tap(
+             ( res:ResponseMovies ) => {
+               if (res) {
+                 this.popularMovie.next(res.results)
+               }
+             }
+           )) */
+  }
+
+  public getPopularTv(): Observable<ResponsePopularTv>{
+    const headers = this.setAuthorization();
+    return this.http.get<ResponsePopularTv>(`${this.BASE_URL}tv/popular?api_key=${this.API_KEY}&language=es-ES&page=1`, {headers:headers})
+  /*         .pipe(tap(
+            ( res:ResponsePopularTv ) => {
+              if (res) {
+                this.popularTv.next(res.results)
+              }
+            }
+          )) */
+  }
+
+  public getTrending(): Observable<ResponseTrending> {
+    /* filter by media_type: movie | tv */
+    return this.http.get<ResponseTrending>(`${this.BASE_URL}/trending/all/day?api_key=${this.API_KEY}&language=es-ES&page=1`)
   }
 
   private setAuthorization(): HttpHeaders{

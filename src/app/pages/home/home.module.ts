@@ -15,7 +15,7 @@ import { HomeRoutingModule } from './home-routing.module';
   imports: [
     CommonModule,
     SlidesCardsModule,
-    HomeRoutingModule
+    HomeRoutingModule,
   ],
   exports: []
 })

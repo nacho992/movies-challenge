@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Movies } from 'src/app/interfaces/Movies.interface';
+import { Result } from 'src/app/interfaces/ResponseTrending.interface';
 
 @Component({
   selector: 'app-slides-cards',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SlidesCardsComponent implements OnInit {
 
+  @Input() popularMovies: Movies[] = [];
+  @Input() trending: Result[] = [];
+
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
 }
