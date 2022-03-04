@@ -19,18 +19,15 @@ export class TmdbService {
   constructor(private http: HttpClient) { }
 
   public getNowPlaying(): Observable<ResponseMovies>{
-    const headers = this.setAuthorization();
-    return this.http.get<ResponseMovies>(`${this.BASE_URL}movie/now_playing?api_key=${this.API_KEY}&language=es-ES&page=1`, {headers:headers})
+    return this.http.get<ResponseMovies>(`${this.BASE_URL}movie/now_playing?api_key=${this.API_KEY}&language=es-ES&page=1`)
   }
 
   public getPopularMovies(): Observable<ResponseMovies>{
-    const headers = this.setAuthorization();
-    return this.http.get<ResponseMovies>(`${this.BASE_URL}movie/popular?api_key=${this.API_KEY}&language=es-ES&page=1`, {headers:headers})
+    return this.http.get<ResponseMovies>(`${this.BASE_URL}movie/popular?api_key=${this.API_KEY}&language=es-ES&page=1`)
   }
 
   public getPopularTv(): Observable<ResponsePopularTv>{
-    const headers = this.setAuthorization();
-    return this.http.get<ResponsePopularTv>(`${this.BASE_URL}tv/popular?api_key=${this.API_KEY}&language=es-ES&page=1`, {headers:headers})
+    return this.http.get<ResponsePopularTv>(`${this.BASE_URL}tv/popular?api_key=${this.API_KEY}&language=es-ES&page=1`)
   }
 
   public searchMovie(title: string): Observable<any>{
@@ -42,7 +39,7 @@ export class TmdbService {
     return this.http.get<ResponseTrending>(`${this.BASE_URL}/trending/all/day?api_key=${this.API_KEY}&language=es-ES&page=1`)
   }
 
-  private setAuthorization(): HttpHeaders{
+  /* private setAuthorization(): HttpHeaders{
     const headers = new HttpHeaders({
      'Authorization' : `Bearer ${this.token}`,
      'Content-Type': 'application/json;charset=utf-8',
@@ -51,5 +48,5 @@ export class TmdbService {
      'Access-Control-Allow-Headers': 'Origin, Content-Type, Accept, Authorization, X-Request-With'
     })
     return headers
-  }
+  } */
 }
