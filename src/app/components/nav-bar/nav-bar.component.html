@@ -38,19 +38,16 @@
                 <a  aria-current="page" [routerLink]="['popular']">Populares</a>
               </li>
               <li class="nav-item">
-                <a  aria-current="page" [routerLink]="['person']">En cartelera</a>
+                <a  aria-current="page" [routerLink]="['upcoming']">Próximo</a>
               </li>
               <li class="nav-item">
-                <a  aria-current="page" [routerLink]="['person']">Próximo</a>
-              </li>
-              <li class="nav-item">
-                <a  aria-current="page" [routerLink]="['person']">Mejor calificado</a>
+                <a  aria-current="page" [routerLink]="['toprate']">Mejor calificado</a>
               </li>
             </ul>
           </ng-template>
         </li>
 
-        <li class="nav-item">
+<!--         <li class="nav-item">
           <a
           [ngbTooltip]="SeriesContent"
           [ngbPopover]="SeriesContent"
@@ -78,7 +75,7 @@
               </li>
             </ul>
           </ng-template>
-        </li>
+        </li> -->
 
         <!-- <li class="nav-item">
           <a
@@ -104,7 +101,7 @@
 
       <div class="input">
         <form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <input class="form-control me-2" #inputSearch  (keyup)="onSearch(inputSearch.value)" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-secondary" type="submit">Search</button>
         </form>
      </div>

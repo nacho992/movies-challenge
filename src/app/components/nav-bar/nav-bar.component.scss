@@ -15,6 +15,9 @@ img{
 a {
     color: #050506;
     text-decoration: none;
+    &:hover{
+        text-shadow: 7px 1px 25px #a700ff;
+    }
 }
 li{
     list-style:none;

@@ -13,7 +13,23 @@ const routes: Routes = [
   },
   {
     path: 'popular',
-    loadChildren: () => import('./pages/popular/popular.module').then( m => m.PopularModule)
+    loadChildren: () => import('./pages/movies/popular/popular.module').then( m => m.PopularModule)
+  },
+  {
+    path: 'movies-details/:id',
+    loadChildren: () => import('./pages/movies/details/details.module').then( m => m.DetailsModule)
+  },
+  {
+    path: 'toprate',
+    loadChildren: () => import('./pages/movies/toprate/toprate.module').then( m => m.ToprateModule)
+  },
+  {
+    path: 'upcoming',
+    loadChildren: () => import('./pages/movies/upcoming/upcoming.module').then( m => m.UpcomingModule)
+  },
+  {
+    path: 'search-result',
+    loadChildren: () => import('./pages/search-result/search-result.module').then( m => m.SearchResultModule)
   }
 ];
 

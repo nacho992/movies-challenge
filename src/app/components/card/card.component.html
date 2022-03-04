@@ -1,0 +1,18 @@
+<article>
+    <div class="card">
+        <div class="content">
+        <div class="img" [routerLink]="['/movie-details', movie.id]">
+            <img src="https://image.tmdb.org/t/p/w500/{{movie.backdrop_path}}" alt="" />
+        </div>
+        <div class="details">
+            <div class="name"*ngIf="movie['name']">{{movie['name'] | slice:0:30}}</div>
+            <div class="name"*ngIf="movie['title']">{{movie['title'] | slice:0:30}}</div>
+            <div class="job">{{movie['release_date'] | date}}</div>
+            <div class="card__rating">
+                {{movie['vote_average']}}
+            </div>      
+        </div>
+
+        </div>
+    </div>
+  </article>

@@ -9,6 +9,9 @@
             <div class="name"*ngIf="popularMovies['name']">{{popularMovies['name'] | slice:0:35}}</div>
             <div class="name"*ngIf="popularMovies['title']">{{popularMovies['title'] | slice:0:35}}</div>
             <div class="job">{{popularMovies['release_date'] | date}}</div>
+            <div class="card__rating">
+                {{popularMovies['vote_average']}}
+            </div> 
         </div>
 
         <div class="multi-button-more">
@@ -30,6 +33,9 @@
             <div class="name"*ngIf="trending['name']">{{trending['name'] | slice:0:35}}</div>
             <div class="name"*ngIf="trending['title']">{{trending['title'] | slice:0:35}}</div>
             <div class="job">{{trending['release_date'] | date}}</div>
+            <div class="card__rating">
+                {{trending['vote_average']}}
+            </div>
         </div>
 
         <div class="multi-button-more">

@@ -33,6 +33,10 @@ export class TmdbService {
     return this.http.get<ResponsePopularTv>(`${this.BASE_URL}tv/popular?api_key=${this.API_KEY}&language=es-ES&page=1`, {headers:headers})
   }
 
+  public searchMovie(title: string): Observable<any>{
+    return this.http.get<any>(`${this.BASE_URL}search/movie?api_key=${this.API_KEY}&language=es-ES&query=${title}&page=1&include_adult=false`)
+  }
+
   public getTrending(): Observable<ResponseTrending> {
     /* filter by media_type: movie | tv */
     return this.http.get<ResponseTrending>(`${this.BASE_URL}/trending/all/day?api_key=${this.API_KEY}&language=es-ES&page=1`)

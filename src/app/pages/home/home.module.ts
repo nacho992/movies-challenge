@@ -5,6 +5,7 @@ import { WelcomeSearchComponent } from 'src/app/components/welcome-search/welcom
 import { SlidesCardsModule } from 'src/app/components/slides-cards/slides-cards.module';
 import { HomeRoutingModule } from './home-routing.module';
 import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
     CommonModule,
     SlidesCardsModule,
     HomeRoutingModule,
-    NgbCarouselModule
+    NgbCarouselModule,
+    RouterModule
   ],
   exports: []
 })
