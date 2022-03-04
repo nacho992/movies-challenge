@@ -17,8 +17,6 @@ export class TmdbService {
   private token = environment.token
 
   constructor(private http: HttpClient) { 
-    const headers = this.setAuthorization();
-    this.http.get<ResponseMovies>(`${this.BASE_URL}movie/now_playing?api_key=${this.API_KEY}&language=es-ES&page=1`, {headers:headers})
    }
 
   public getNowPlaying(): Observable<ResponseMovies>{

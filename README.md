@@ -8,7 +8,7 @@ This application developed in Angular, consumes the TMDB API, a good movie api, 
 
 # Preview Deployed
 
-[MoviesApp](https://movies-1aa89.web.app/)
+[MoviesApp](https://movies-1aa89.web.app/home)
 
 ## Development server
 
