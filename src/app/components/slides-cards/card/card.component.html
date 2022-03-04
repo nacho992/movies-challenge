@@ -1,10 +1,42 @@
 
-<div *ngIf="popularMovie$ | async as popularMovies" class="card card-block">
-    <h1 *ngIf="popularMovies['name']">{{popularMovies['name']}}</h1>
-    <h1 *ngIf="popularMovies['title']">{{popularMovies['title']}}</h1>
+<div *ngIf="popularMovie$ | async as popularMovies">
+    <div class="card">
+        <div class="content">
+        <div class="img" [routerLink]="['/movie-details', popularMovies.id]">
+            <img src="https://image.tmdb.org/t/p/w500/{{popularMovies.backdrop_path}}" alt="" />
+        </div>
+        <div class="details">
+            <div class="name"*ngIf="popularMovies['name']">{{popularMovies['name'] | slice:0:35}}</div>
+            <div class="name"*ngIf="popularMovies['title']">{{popularMovies['title'] | slice:0:35}}</div>
+            <div class="job">{{popularMovies['release_date'] | date}}</div>
+        </div>
+
+        <div class="multi-button-more">
+            <button class="fas fa-heart" >
+            <img as="image" width="21" height="21" src="../../../../assets/icons/three-dots-vertical.svg" alt="more" />
+            </button>
+        </div>
+        </div>
+    </div>
 </div>
 
-<div *ngIf="trending$ | async as trending" class="card card-block">
-    <h1 *ngIf="trending['name']">{{trending['name']}}</h1>
-    <h1 *ngIf="trending['title']">{{trending['title']}}</h1>
+<div *ngIf="trending$ | async as trending">
+    <div class="card">
+        <div class="content">
+        <div class="img" [routerLink]="['/movie-details', trending.id]">
+            <img src="https://image.tmdb.org/t/p/w500/{{trending.backdrop_path}}" alt="" />
+        </div>
+        <div class="details">
+            <div class="name"*ngIf="trending['name']">{{trending['name'] | slice:0:35}}</div>
+            <div class="name"*ngIf="trending['title']">{{trending['title'] | slice:0:35}}</div>
+            <div class="job">{{trending['release_date'] | date}}</div>
+        </div>
+
+        <div class="multi-button-more">
+            <button class="fas fa-heart" >
+            <img as="image" width="21" height="21" src="../../../../assets/icons/three-dots-vertical.svg" alt="more" />
+            </button>
+        </div>
+        </div>
+    </div>
 </div>
