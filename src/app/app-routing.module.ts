@@ -16,7 +16,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/movies/popular/popular.module').then( m => m.PopularModule)
   },
   {
-    path: 'movies-details/:id',
+    path: 'movies-details/:id/:media',
     loadChildren: () => import('./pages/movies/details/details.module').then( m => m.DetailsModule)
   },
   {

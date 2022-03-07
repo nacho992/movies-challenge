@@ -21,13 +21,27 @@
     .movie_header{
       padding: 5px;
       height: 40%;
+      .icons{
+        width: 25px;
+        height: 25px;
+        margin: 4px;
+        display: inline;
+      }
       h1{
         color: #fff;
         font-weight: 400;
       }
+      h2{
+        color:#fff;
+        font-weight: 400;
+        font-size: 1.5rem;
+      }
       h4{
         color: #9ac7fa;
         font-weight: 400;
+      }
+      h5{
+        color: var(--secondary-color);
       }
       .minutes{
         display: inline-block;
@@ -61,29 +75,10 @@
       height: 50%;
       .text{
         color: #cfd6e1;
-      }
-    }
-    .movie_social{
-      height: 10%;
-      padding-left: 15px;
-      padding-bottom: 20px;
-      ul{
-        list-style: none;
-        padding: 0;
-        li{
-          display: inline-block;
-          color: rgba(255,255,255,0.4);
-          transition: color 0.3s;
-          transition-delay: 0.15s;
-          margin: 0 10px;
-          &:hover{
-            transition: color 0.3s;
-            color: rgba(255,255,255,0.8);
-          }
-          i{
-            font-size: 19px;
-            cursor: pointer;
-          }
+        button{
+          border-radius: 12px;
+          margin-top: 20px;
+          display: block;
         }
       }
     }
@@ -160,4 +155,20 @@
   background-repeat: no-repeat;
   background-attachment: fixed;
   background: left;
+}
+.not-found{
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  position: fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100%;
+  width: 100% ;
+  z-index: -1;
+  background-image: url("https://media.istockphoto.com/vectors/page-not-found-error-with-film-flap-design-vector-id1265221960?k=20&m=1265221960&s=170667a&w=0&h=jCITUlo5a7s5fue3XrX2WB8FOK9VnbaWeLCHB8Ovj-c=");
+  button {
+    margin: 100px;
+}
 }

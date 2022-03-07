@@ -36,11 +36,11 @@ export class TmdbService {
   }
 
   public moviesTopRate(): Observable<ResponseMovies>{
-    return this.http.get<ResponsePopularTv>(`${this.BASE_URL}movie/top_rated?api_key=${this.API_KEY}&language=es-ES&page=1`)
+    return this.http.get<ResponseMovies>(`${this.BASE_URL}movie/top_rated?api_key=${this.API_KEY}&language=es-ES&page=1`)
   }
 
   public moviesUpcoming(): Observable<ResponseMovies>{
-    return this.http.get<ResponsePopularTv>(`${this.BASE_URL}movie/upcoming?api_key=${this.API_KEY}&language=es-ES&page=1`)
+    return this.http.get<ResponseMovies>(`${this.BASE_URL}movie/upcoming?api_key=${this.API_KEY}&language=es-ES&page=1`)
   }
 
   public getTrending(): Observable<ResponseTrending> {
@@ -50,6 +50,10 @@ export class TmdbService {
 
   public detailsMovie(id: number): Observable<any> {
     return this.http.get<any>(`${this.BASE_URL}movie/${id}?api_key=${this.API_KEY}&language=es-ES&page=1`)
+  }
+
+  public detailsTv(id: number): Observable<any> {
+    return this.http.get<any>(`${this.BASE_URL}tv/${id}?api_key=${this.API_KEY}&language=es-ES&page=1`)
   }
 
   private setAuthorization(): HttpHeaders{

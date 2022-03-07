@@ -1,6 +1,6 @@
 
 <div *ngIf="popularMovie$ | async as popularMovies">
-    <div class="card" [routerLink]="['/movies-details', popularMovies['id']]">
+    <div class="card" [routerLink]="['/movies-details', popularMovies['id'], popularMovies['media_type']]">
         <div class="content">
         <div class="img">
             <img src="https://image.tmdb.org/t/p/w500/{{popularMovies.backdrop_path}}" alt="" />
@@ -24,7 +24,7 @@
 </div>
 
 <div *ngIf="trending$ | async as trending">
-    <div class="card" [routerLink]="['/movies-details', trending['id']]">
+    <div class="card" [routerLink]="['/movies-details', trending['id'], trending['media_type']]">
         <div class="content">
         <div class="img">
             <img src="https://image.tmdb.org/t/p/w500/{{trending.backdrop_path}}" alt="" />
@@ -35,6 +35,30 @@
             <div class="job">{{trending['release_date'] | date}}</div>
             <div class="card__rating">
                 {{trending['vote_average']}}
+            </div>
+        </div>
+
+        <div class="multi-button-more">
+            <button class="fas fa-heart">
+            <img as="image" width="21" height="21" src="../../../../assets/icons/three-dots-vertical.svg" alt="more" />
+            </button>
+        </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="popularTv$ | async as popularTv">
+    <div class="card" [routerLink]="['/movies-details', popularTv['id'], 'tv']">
+        <div class="content">
+        <div class="img">
+            <img src="https://image.tmdb.org/t/p/w500/{{popularTv.backdrop_path}}" alt="" />
+        </div>
+        <div class="details">
+            <div class="name"*ngIf="popularTv['name']">{{popularTv['name'] | slice:0:35}}</div>
+            <div class="name"*ngIf="popularTv['title']">{{popularTv['title'] | slice:0:35}}</div>
+            <div class="job">{{popularTv['release_date'] | date}}</div>
+            <div class="card__rating">
+                {{popularTv['vote_average']}}
             </div>
         </div>
 

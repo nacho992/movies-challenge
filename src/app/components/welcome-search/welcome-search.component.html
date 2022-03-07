@@ -25,7 +25,7 @@
                 <div class="carousel-inner">
 
                   <div class="carousel-item active" *ngIf="movies.length">
-                    <img src="https://image.tmdb.org/t/p/w500/{{movies[0].backdrop_path}}" class="d-block img-fluid" alt="Random first slide">
+                    <img src="https://image.tmdb.org/t/p/w500/{{movies[0].backdrop_path}}" [routerLink]="['/movies-details', movies[0].id, movies.media_type]" class="d-block img-fluid" alt="Random first slide">
                     <div class="carousel-caption  d-block img-fluid">
                         <h2>{{movies[0]['title']}}</h2>
                         <p>{{movies[0]['overview']}}</p>
@@ -33,7 +33,7 @@
                   </div>
 
                   <div class="carousel-item" *ngFor="let movie of movies | slice:1">
-                    <img src="https://image.tmdb.org/t/p/w500/{{movie.backdrop_path}}" class="d-block img-fluid" alt="Random first slide">
+                    <img src="https://image.tmdb.org/t/p/w500/{{movie.backdrop_path}}" [routerLink]="['/movies-details', movie.id, movie.media_type]" class="d-block img-fluid" alt="Random first slide">
                     <div class="carousel-caption  d-block img-fluid">
                         <h2>{{movie['title']}}</h2>
                         <p>{{movie['overview']}}</p>

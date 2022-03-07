@@ -12,6 +12,7 @@ import { CommonModule } from '@angular/common';
   declarations: [
     AppComponent,
     NavBarComponent,
+
   ],
   imports: [
     BrowserModule,

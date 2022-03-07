@@ -3,7 +3,7 @@
   <h2 *ngIf="movies.length == 0">Escribe algo en el buscador, por ejemplo: thor</h2>
   <h1 *ngIf="movies.length > 0">Todas las peliculas con {{query}}</h1>
 </div>
-<div *ngIf="movies.length !== 0" class="grid">
+<div *ngIf="movies$ | async as movies" class="grid">
   
     <app-card *ngFor="let movie of movies" [movie]="movie"></app-card>
     

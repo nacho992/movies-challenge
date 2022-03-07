@@ -1,7 +1,7 @@
 <article>
     <div class="card">
         <div class="content">
-        <div class="img" [routerLink]="['/movie-details', movie.id]">
+        <div class="img" [routerLink]="['/movies-details', movie.id, movie.media_type]">
             <img src="https://image.tmdb.org/t/p/w500/{{movie.backdrop_path}}" alt="" />
         </div>
         <div class="details">
