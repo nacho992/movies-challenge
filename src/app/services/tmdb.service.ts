@@ -48,6 +48,10 @@ export class TmdbService {
     return this.http.get<ResponseTrending>(`${this.BASE_URL}/trending/all/day?api_key=${this.API_KEY}&language=es-ES&page=1`)
   }
 
+  public detailsMovie(id: number): Observable<any> {
+    return this.http.get<any>(`${this.BASE_URL}movie/${id}?api_key=${this.API_KEY}&language=es-ES&page=1`)
+  }
+
   private setAuthorization(): HttpHeaders{
     const headers = new HttpHeaders({
      'Authorization' : `Bearer ${this.token}`,

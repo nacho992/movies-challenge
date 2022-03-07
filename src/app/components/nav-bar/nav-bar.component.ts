@@ -21,6 +21,7 @@ export class NavBarComponent implements OnInit {
         queryParams: { q: value }
       })
     }
+
   }
 
 }

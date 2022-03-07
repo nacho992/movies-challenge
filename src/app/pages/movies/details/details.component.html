@@ -1,1 +1,25 @@
-<p>details works!</p>
+
+ <div class="movie_card" id="bright" *ngIf="movie$ | async as movie">
+    <div class="info_section">
+      <div class="movie_header">
+        <img class="locandina" src="https://image.tmdb.org/t/p/w500/{{movie.backdrop_path}}" alt="" />
+        <h1>{{movie['name']}}</h1>
+        <h4>{{movie['title']}}</h4>
+        <span class="minutes">117 min</span>
+        <p class="type">Action, Crime, Fantasy</p>
+      </div>
+      <div class="movie_desc">
+        <p class="text">
+            {{movie['overview']}}
+        </p>
+      </div>
+      <div class="movie_social">
+        <ul>
+          <li><i class="material-icons">share</i></li>
+          <li><i class="material-icons"></i></li>
+          <li><i class="material-icons">chat_bubble</i></li>
+        </ul>
+      </div>
+    </div>
+    <div class="blur_back bright_back"  [ngStyle]="{'background-image': 'url(' + 'https://image.tmdb.org/t/p/w500/' + movie['backdrop_path'] + ')'}" ></div>
+  </div>

@@ -1,16 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CardMoviesComponent } from './card-movies.component';
+import { RouterModule } from '@angular/router';
 
 
 
 @NgModule({
   declarations: [CardMoviesComponent],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule
   ],
   exports: [
-    CardMoviesComponent
+    CardMoviesComponent,
   ]
 })
 export class CardMoviesModule { }
