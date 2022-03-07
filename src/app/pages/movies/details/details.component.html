@@ -1,34 +1,68 @@
 <app-alert></app-alert>
- <div class="movie_card" id="bright" *ngIf="movie$ | async as movie">
-    <div class="info_section">
-      <div class="movie_header">
-        <img class="locandina" src="https://image.tmdb.org/t/p/w500/{{movie.backdrop_path}}" alt="" />
-        <h1>{{movie['name']}}</h1>
-        <h4>{{movie['title']}}</h4>
-        <h5>{{movie['release_date'] | date}}</h5>
-        <img class="icons" src="../../../../assets/icons/clock-history.svg" alt="time">
-        <span class="minutes">{{movie['runtime']}}min</span>
-        <p class="type" *ngFor="let genre of movie['genres']">{{genre['name']}}</p>
-        
-        <h2><img class="icons" src="../../../../assets/icons/star-fill.svg" alt="">{{movie['vote_average']}}/10</h2>
-        
+<div class="movie_card" id="bright" *ngIf="movie$ | async as movie">
+  <div class="info_section">
+    <div class="movie_header">
+      <img
+        class="locandina"
+        src="https://image.tmdb.org/t/p/w500/{{ movie.backdrop_path }}"
+        alt=""
+      />
+      <h1>{{ movie["name"] }}</h1>
+      <h4>{{ movie["title"] }}</h4>
+      <h5>{{ movie["release_date"] | date }}</h5>
+      <img
+        class="icons"
+        src="../../../../assets/icons/clock-history.svg"
+        alt="time"
+      />
+      <span class="minutes">{{ movie["runtime"] }}min</span>
+      <p class="type" *ngFor="let genre of movie['genres']">
+        {{ genre["name"] }}
+      </p>
 
-      </div>
-      <div class="movie_desc">
-        <p class="text">
-            {{movie['overview']}}
-            <button class="btn btn-outline-secondary btn-sm" (click)="onBack()">Regresar</button>
-        </p>
-        <div class="slides">
-          <app-cast-slide [cast]="credits">Elenco</app-cast-slide>
-        </div>
-      </div>
-
+      <h2>
+        <img
+          class="icons"
+          src="../../../../assets/icons/star-fill.svg"
+          alt=""
+        />{{ movie["vote_average"] }}/10
+      </h2>
     </div>
-    <div class="blur_back bright_back"  [ngStyle]="{'background-image': 'url(' + 'https://image.tmdb.org/t/p/w500/' + movie['backdrop_path'] + ')'}" ></div>
-    <div  *ngIf="movie['backdrop_path'] === null || error" class="blur_back bright_back"  [ngStyle]="{'background-image': 'url(' + 'https://media.istockphoto.com/vectors/page-not-found-error-with-film-flap-design-vector-id1265221960?k=20&m=1265221960&s=170667a&w=0&h=jCITUlo5a7s5fue3XrX2WB8FOK9VnbaWeLCHB8Ovj-c=' +')'}" ></div>
+    <div class="movie_desc">
+      <p class="text">
+        {{ movie["overview"] }}
+        <button class="btn btn-outline-secondary btn-sm" (click)="onBack()">
+          Regresar
+        </button>
+      </p>
+      <div class="slides">
+        <app-cast-slide [cast]="credits">Elenco</app-cast-slide>
+      </div>
+    </div>
+  </div>
+  <div
+    class="blur_back bright_back"
+    [ngStyle]="{
+      'background-image':
+        'url(' +
+        'https://image.tmdb.org/t/p/w500/' +
+        movie['backdrop_path'] +
+        ')'
+    }"
+  ></div>
+  <div
+    *ngIf="movie['backdrop_path'] === null || error"
+    class="blur_back bright_back"
+    [ngStyle]="{
+      'background-image':
+        'url(' +
+        'https://media.istockphoto.com/vectors/page-not-found-error-with-film-flap-design-vector-id1265221960?k=20&m=1265221960&s=170667a&w=0&h=jCITUlo5a7s5fue3XrX2WB8FOK9VnbaWeLCHB8Ovj-c=' +
+        ')'
+    }"
+  ></div>
 </div>
-<div  *ngIf="error || !movie$ " class="not-found" >
-  <button class="btn btn-outline-secondary btn-sm" (click)="onBack()">Regresar</button>
+<div *ngIf="error || !movie$" class="not-found">
+  <button class="btn btn-outline-secondary btn-sm" (click)="onBack()">
+    Regresar
+  </button>
 </div>
-

@@ -73,6 +73,7 @@
       padding: 25px;
       height: 50%;
       .slides{
+        display: grid;
         grid-column-start: 4;
         grid-column-end: 1;
         grid-row-end: 3;
@@ -116,6 +117,17 @@
   }
 }
 
+@media screen and (max-width: 1000px) {
+  .movie_card{
+    width: 100%;
+    .info_section{
+      grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
+      .movie_desc{
+        display: block;
+      }
+    }
+  }
+}
 
 @media screen and (max-width: 768px) {
   .movie_card{
@@ -126,6 +138,10 @@
     .info_section{
       background: linear-gradient(to top, rgb(20, 20, 19) 50%, transparent 100%);
       grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
+      padding: 10px;
+      .movie_desc{
+        display: block;
+      }
     }
   }
   

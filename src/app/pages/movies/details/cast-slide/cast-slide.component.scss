@@ -70,59 +70,11 @@ p{
     }/* end content */
 }
 
-
-@media (max-width: 1334px){
-	.scrolling-wrapper{
-
-	  .col-3{
-		width: 30%;
-	  }
-	}
-}
-
 @media (max-width: 1043px){
 	.scrolling-wrapper{
 
 	  .col-3{
-		width: 35%;
+		width: 25%;
 	  }
 	}
 }
-
-@media (max-width: 893px){
-	.scrolling-wrapper{
-
-	  .col-3{
-		width: 40%;
-	  }
-	}
-}
-
-@media (max-width: 736px){
-	.scrolling-wrapper{
-
-	  .col-3{
-		width: 50%;
-	  }
-	}
-}
-
-@media (max-width: 590px){
-	.scrolling-wrapper{
-
-	  .col-3{
-		width: 88%;
-	  }
-	}
-}
-
-@media (max-width: 415px){
-	.scrolling-wrapper{
-
-	  .col-3{
-		width: 100%;
-	  }
-	}
-}
-
-
