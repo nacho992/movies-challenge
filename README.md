@@ -8,8 +8,8 @@ This application developed in Angular, consumes the TMDB API, a good movie api, 
 
 # Preview Deployed
 
-firebase-->>[MoviesApp](https://movies-1aa89.web.app/home)
-netlify--->>[MovieApp](https://determined-goldstine-cbbc25.netlify.app/home)
+firebase-->>[MoviesApp](https://movies-1aa89.web.app/)
+netlify--->>[MovieApp](https://determined-goldstine-cbbc25.netlify.app/)
 
 ## Development server
 
