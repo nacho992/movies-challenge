@@ -6,6 +6,7 @@ import { environment } from 'src/environments/environment';
 import { ResponseMovies } from '../interfaces/ResponseMovies.interface';
 import { ResponseTrending } from '../interfaces/ResponseTrending.interface';
 import { ResponsePopularTv } from '../interfaces/ResponsePopularTv.interface';
+import { ResponseCredits } from '../interfaces/responseCredits.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -54,6 +55,10 @@ export class TmdbService {
 
   public detailsTv(id: number): Observable<any> {
     return this.http.get<any>(`${this.BASE_URL}tv/${id}?api_key=${this.API_KEY}&language=es-ES&page=1`)
+  }
+
+  public getCredits(id: number): Observable<ResponseCredits>{
+    return this.http.get<ResponseCredits>(`${this.BASE_URL}movie/${id}/credits?api_key=${this.API_KEY}&language=en-US`)
   }
 
   private setAuthorization(): HttpHeaders{

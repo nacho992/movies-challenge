@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Movies } from 'src/app/interfaces/Movies.interface';
+import { Cast, ResponseCredits } from 'src/app/interfaces/responseCredits.interface';
 import { TmdbService } from 'src/app/services/tmdb.service';
 import { ToastService } from 'src/app/services/toast.service';
 
@@ -15,6 +16,7 @@ export class DetailsComponent implements OnInit {
 
   movie$: Observable<any>
   error: boolean = false
+  credits: Cast[]
 
   constructor(private route: ActivatedRoute,
               private tmdbService: TmdbService,
@@ -24,7 +26,6 @@ export class DetailsComponent implements OnInit {
   ngOnInit(): void {
     const id = this.route.snapshot.params.id
     const media = this.route.snapshot.params.media
-    console.log('IF',media,id)
     if (media === 'tv') {
       this.movie$ = this.tmdbService.detailsTv(id)
     }else{
@@ -34,6 +35,10 @@ export class DetailsComponent implements OnInit {
     //this.movie$ = this.tmdbService.detailsMovie(id)
     this.movie$.subscribe(res=>{
       this.error = false
+      this.tmdbService.getCredits(id).subscribe((res: ResponseCredits)=>{
+        this.credits = res.cast
+        console.log(this.credits)
+      })
     },
     err => {
       this.toastService.showDanger('Error de servidor, no hay recursos para esta peli')

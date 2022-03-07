@@ -19,6 +19,9 @@
             {{movie['overview']}}
             <button class="btn btn-outline-secondary btn-sm" (click)="onBack()">Regresar</button>
         </p>
+        <div class="slides">
+          <app-cast-slide [cast]="credits">Elenco</app-cast-slide>
+        </div>
       </div>
 
     </div>
@@ -28,3 +31,4 @@
 <div  *ngIf="error || !movie$ " class="not-found" >
   <button class="btn btn-outline-secondary btn-sm" (click)="onBack()">Regresar</button>
 </div>
+

@@ -1,6 +1,5 @@
 .movie_card{
   position: relative;
-  height: 800px;
   display: block;
   overflow: hidden;
   transition: all 0.4s;
@@ -73,6 +72,12 @@
       display: contents;
       padding: 25px;
       height: 50%;
+      .slides{
+        grid-column-start: 4;
+        grid-column-end: 1;
+        grid-row-end: 3;
+        z-index: 2;
+      }
       .text{
         color: #cfd6e1;
         button{

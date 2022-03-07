@@ -1,0 +1,20 @@
+<p>Elenco</p>
+<div class="container-fluid" *ngIf="cast">
+	<div class="scrolling-wrapper row flex-row flex-nowrap mt-4 pb-4 pt-2">
+		<div class="container">
+			<div class="col-3" *ngFor="let item of cast">
+				<!-- card, modularizar -->
+                <div class="card">
+                    <div class="content">
+                    <div class="img" >
+                        <img src="https://image.tmdb.org/t/p/w500/{{item.profile_path}}" alt="" />
+                    </div>
+                    <div class="details">
+                        <div class="name">{{item['name'] | slice:0:30}}</div>   
+                    </div>
+                    </div>
+                </div>
+			</div>
+		</div>
+	</div>
+</div>
