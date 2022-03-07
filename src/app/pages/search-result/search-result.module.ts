@@ -5,6 +5,7 @@ import { SearchResultRoutingModule } from './search-result-routing.module';
 import { SearchResultComponent } from './search-result.component';
 import { RouterModule } from '@angular/router';
 import { CardComponent } from 'src/app/components/card/card.component';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 
 
@@ -16,7 +17,8 @@ import { CardComponent } from 'src/app/components/card/card.component';
   imports: [
     CommonModule,
     SearchResultRoutingModule,
-    RouterModule
+    RouterModule,
+    InfiniteScrollModule
   ],
   exports: [
     SearchResultComponent,

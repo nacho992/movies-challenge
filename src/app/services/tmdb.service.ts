@@ -31,8 +31,8 @@ export class TmdbService {
     return this.http.get<ResponsePopularTv>(`${this.BASE_URL}tv/popular?api_key=${this.API_KEY}&language=es-ES&page=1`)
   }
 
-  public searchMovie(title: string): Observable<any>{
-    return this.http.get<any>(`${this.BASE_URL}search/movie?api_key=${this.API_KEY}&language=es-ES&query=${title}&page=1&include_adult=false`)
+  public searchMovie(title: string, page: number): Observable<any>{
+    return this.http.get<any>(`${this.BASE_URL}search/movie?api_key=${this.API_KEY}&language=es-ES&query=${title}&page=${page}&include_adult=false`)
   }
 
   public moviesTopRate(): Observable<ResponseMovies>{
