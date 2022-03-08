@@ -1,8 +1,11 @@
 <article>
     <div class="card">
         <div class="content">
-        <div class="img" [routerLink]="['/movies-details', movie.id, movie.media_type]">
+        <div *ngIf="movie.backdrop_path" class="img" [routerLink]="['/movies-details', movie.id, movie.media_type]">
             <img src="https://image.tmdb.org/t/p/w500/{{movie.backdrop_path}}" alt="" />
+        </div>
+        <div *ngIf="!movie.backdrop_path" class="img" [routerLink]="['/movies-details', movie.id, movie.media_type]">
+            <img class="img-error"  alt="" />
         </div>
         <div class="details">
             <div class="name"*ngIf="movie['name']">{{movie['name'] | slice:0:30}}</div>

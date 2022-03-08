@@ -6,11 +6,15 @@
 				<!-- card, modularizar -->
                 <div class="card">
                     <div class="content">
-                    <div class="img" >
+                    <div class="img" *ngIf="item.profile_path">
                         <img src="https://image.tmdb.org/t/p/w500/{{item.profile_path}}" alt="" />
                     </div>
+                    <div *ngIf="item.profile_path == null">
+                        <img class="img-error" alt="">
+                    </div>
                     <div class="details">
-                        <div class="name">{{item['name'] | slice:0:30}}</div>   
+                        <div class="name">{{item['name'] | slice:0:30}}</div>
+                         <h5>{{item['character']}}</h5>   
                     </div>
                     </div>
                 </div>

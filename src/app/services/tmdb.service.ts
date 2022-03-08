@@ -57,8 +57,12 @@ export class TmdbService {
     return this.http.get<any>(`${this.BASE_URL}tv/${id}?api_key=${this.API_KEY}&language=es-ES&page=1`)
   }
 
-  public getCredits(id: number): Observable<ResponseCredits>{
+  public getCreditsMovie(id: number): Observable<ResponseCredits>{
     return this.http.get<ResponseCredits>(`${this.BASE_URL}movie/${id}/credits?api_key=${this.API_KEY}&language=en-US`)
+  }
+
+  public getCreditsTv(id: number): Observable<any>{
+    return this.http.get<any>(`${this.BASE_URL}tv/${id}/credits?api_key=${this.API_KEY}&language=en-US`)
   }
 
   private setAuthorization(): HttpHeaders{

@@ -11,11 +11,13 @@
       <h4>{{ movie["title"] }}</h4>
       <h5>{{ movie["release_date"] | date }}</h5>
       <img
+        *ngIf="movie.runtime"
         class="icons"
         src="../../../../assets/icons/clock-history.svg"
         alt="time"
       />
-      <span class="minutes">{{ movie["runtime"] }}min</span>
+      <span class="minutes" *ngIf="movie.runtime">{{ movie["runtime"] }}min</span>
+      <span class="seasons" *ngIf="movie.number_of_seasons">Temporadas: {{movie['number_of_seasons']}}</span>
       <p class="type" *ngFor="let genre of movie['genres']">
         {{ genre["name"] }}
       </p>

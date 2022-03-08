@@ -7,6 +7,9 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { StoreModule } from '@ngrx/store';
+import { searchHistory } from './reducers/state//searchHistory.reducer';
+
 
 @NgModule({
   declarations: [
@@ -19,7 +22,9 @@ import { CommonModule } from '@angular/common';
     AppRoutingModule,
     NgbModule,
     HttpClientModule,
-    CommonModule
+    CommonModule,
+    StoreModule.forRoot({ history: searchHistory}),
+   
   ],
   providers: [],
   bootstrap: [AppComponent]
