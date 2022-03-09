@@ -19,6 +19,10 @@ const routes: Routes = [
     path: 'movies-details/:id/:media',
     loadChildren: () => import('./pages/movies/details/details.module').then( m => m.DetailsModule)
   },
+  {
+    path: 'search-result',
+    loadChildren: () => import('./pages/search-result/search-result.module').then( m => m.SearchResultModule)
+  }
 ];
 
 @NgModule({
