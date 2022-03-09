@@ -24,6 +24,7 @@ export class SearchResultComponent implements OnInit {
   public showGoUpButton = false;
   private page = 1;
   public totalPage;
+  
   constructor(
                 private route: ActivatedRoute,
                 private router: Router,

@@ -10,17 +10,4 @@
         padding-right: 20px;
         font-size: 1.5rem;
     }
-    .selector-wrap{
-        border-radius: 30px;
-        a {
-            border-radius: 30px;
-        }
-        .nav{
-            padding: 4px 4px 4px 12px;
-        }
-        .nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
-            color: #fff;
-            background-color: var(--secondary-color);
-        }
-    }
 }
