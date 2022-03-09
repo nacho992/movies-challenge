@@ -9,6 +9,7 @@
   }
   .info_section{
     display: grid;
+    justify-items: center;
     $auto-grid-min-size: 35rem;
     grid-template-columns: repeat(auto-fill, minmax($auto-grid-min-size, 1fr));
     position: relative;
@@ -172,9 +173,6 @@
     //margin: 0px auto; 
     min-height: 350px;
     height: auto;
-    .info_section{
-      grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
-    }
   }
 }
 .bright_back{

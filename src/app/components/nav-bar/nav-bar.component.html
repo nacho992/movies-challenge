@@ -35,13 +35,13 @@
           <ng-template #PeliculasContent>
             <ul>
               <li class="nav-item">
-                <a  aria-current="page" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" [routerLink]="['popular']">Populares</a>
+                <a  aria-current="page" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" [routerLink]="['movies', 'popular']">Populares</a>
               </li>
               <li class="nav-item">
-                <a  aria-current="page" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" [routerLink]="['upcoming']">Próximo</a>
+                <a  aria-current="page" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" [routerLink]="['movies', 'upcoming']">Próximo</a>
               </li>
               <li class="nav-item">
-                <a  aria-current="page" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" [routerLink]="['toprate']">Mejor calificado</a>
+                <a  aria-current="page" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" [routerLink]="['movies', 'top-rate']">Mejor calificado</a>
               </li>
             </ul>
           </ng-template>

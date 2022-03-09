@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ToprateComponent } from './toprate.component';
+import { MoviesGridComponent } from './movies-grid.component';
 
-const routes: Routes = [{path: '', component: ToprateComponent}];
+const routes: Routes = [{path: '', component: MoviesGridComponent}];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class ToprateRoutingModule { }
+export class MoviesGridRoutingModule { }

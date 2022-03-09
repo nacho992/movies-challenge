@@ -1,5 +1,5 @@
 <div class="wrapper">
-    <h1 *ngIf="movies.length > 0">Mejores calificadas</h1>
+    <h1 *ngIf="movies$ | async as movies">{{titlePage}}</h1>
     <div class="grid">
 
         <article *ngFor="let movie of movies">
