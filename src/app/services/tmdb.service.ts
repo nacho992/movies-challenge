@@ -33,7 +33,7 @@ export class TmdbService {
   }
 
   public searchMovie(title: string, page: number): Observable<any>{
-    return this.http.get<any>(`${this.BASE_URL}search/movie?api_key=${this.API_KEY}&language=es-ES&query=${title}&page=${page}&include_adult=false`)
+    return this.http.get<any>(`${this.BASE_URL}search/multi?api_key=${this.API_KEY}&language=es-ES&query=${title}&page=${page}&include_adult=false`)
   }
 
   public moviesTopRate(): Observable<ResponseMovies>{

@@ -102,8 +102,7 @@
       <div class="input">
         <div class="d-flex">
             <input class="form-control me-2"
-            #inputSearch 
-            (keyup)="onSearch(inputSearch.value)" 
+            #inputSearch  
             (click)="onHistorySearch()" 
             type="search" placeholder="Buscar..." 
             aria-label="Search"
@@ -114,7 +113,7 @@
             #HistoryList="ngbPopover"
             (click)="HistoryList.open()"
             >
-            <button class="btn btn-outline-secondary" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">Buscar</button>
+            <button class="btn btn-outline-secondary" (click)="onSearch(inputSearch.value)" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">Buscar</button>
         </div>
      </div>
 

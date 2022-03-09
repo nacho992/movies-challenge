@@ -31,7 +31,6 @@ p{
    	height: 250px;
    	width: 200px;
     border-radius: 12px;
-    margin: 15px;
     box-shadow: 0 5px 10px rgb(255 255 255 / 15%);
     transition: all 0.4s ease;
     &:hover {
@@ -79,6 +78,15 @@ p{
 
 	  .col-3{
 		width: 25%;
+	  }
+	}
+}
+
+@media (max-width: 1043px){
+	.scrolling-wrapper{
+    max-width: 500px;
+	  .col-3{
+		width: 60%;
 	  }
 	}
 }
