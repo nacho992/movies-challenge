@@ -1,27 +1,12 @@
 section{
     width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    align-content: flex-start;
-    justify-content: center;
-    background-color: #fff;
+    display: contents;
 }
 .portada{
-    //background-image:  linear-gradient(to right, rgba(56,34,195,0.8) 0%, rgba(217,45,253,0) 100%), url("../../../assets/portada.jpeg");
-    //min-height: calc(90vh - 100px - 300px);
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
     background-size: cover;
-    max-width: 1200px;
-    margin: 0px 0px 0px 0px;
-    border-radius: 0px 0px 8px 8px;
 }
 
 .content_wrapper {
-    max-width: 1200px;
-    width: 100%;
-    display: flex;
     align-items: flex-start;
     align-content: flex-start;
     
@@ -32,7 +17,7 @@ section{
             object-fit: cover;
             object-position: center;
             height: 50vh;
-            width: 130vh;
+            width: 100%;
             overflow: hidden;
         }
         .carousel-caption{
