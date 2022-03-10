@@ -15,6 +15,19 @@
   --secondary-color: #aa0fe4;
 }
 
+.background{
+  background: linear-gradient(to bottom, #212529 50%, transparent 100%);
+  position: absolute;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100%;
+  width: 100% ;
+  margin: 0px 0px 0px 0px;
+  z-index: -1;
+}
+
 ::-webkit-scrollbar {
   width: 8px;
 height: 8px;
@@ -59,4 +72,18 @@ box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
       border-radius: 30px;
       border: none;
   }
+}
+
+/* Buttons */
+.btn-lg, .btn-group-lg > .btn{
+  font-size: 1rem;
+  margin: 0.5rem;
+  border-radius: 1.3rem;
+}
+.btn-outline-secondary {
+  color: #ffffff;
+  border-color: var(--secondary-color);
+}
+.btn-outline-secondary:hover{
+    background-color: var(--secondary-color);
 }

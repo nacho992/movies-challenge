@@ -78,6 +78,11 @@
       display: contents;
       padding: 25px;
       height: 50%;
+      .container{
+        width: fit-content;
+        height: 300px;
+        overflow: auto;
+      }
       .slides{
         display: grid;
         grid-column-start: 4;
@@ -114,7 +119,7 @@
   }
   
   .info_section{
-    background: linear-gradient(to right, #0d0d0c 50%, transparent 100%);
+    background: linear-gradient(to right, #212529 50%, transparent 100%);
   }
   
   .blur_back{

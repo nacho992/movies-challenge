@@ -6,13 +6,15 @@ import { AlertToastlModule } from 'src/app/components/alert-toast/alert-toast.mo
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AlertToastComponent } from 'src/app/components/alert-toast/alert-toast.component';
 import { CastSlideComponent } from './cast-slide/cast-slide.component';
+import { TrailersComponent } from './trailers/trailers.component';
 
 
 @NgModule({
   declarations: [
     DetailsComponent,
     AlertToastComponent,
-    CastSlideComponent
+    CastSlideComponent,
+    TrailersComponent
   ],
   imports: [
     CommonModule,

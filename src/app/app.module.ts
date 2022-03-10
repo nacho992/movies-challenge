@@ -14,8 +14,7 @@ import { searchHistory } from './reducers/state//searchHistory.reducer';
 @NgModule({
   declarations: [
     AppComponent,
-    NavBarComponent,
-
+    NavBarComponent
   ],
   imports: [
     BrowserModule,

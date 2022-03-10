@@ -2,6 +2,9 @@
 <div class="movie_card" id="bright" *ngIf="movie$ | async as movie">
   <div class="info_section">
     <div class="movie_header">
+      <button class="btn btn-outline-secondary btn-lg" (click)="onBack()">
+        Regresar
+      </button>
       <img class="locandina" src="https://image.tmdb.org/t/p/w500/{{ movie.backdrop_path }}" alt="" />
       <h1>{{ movie["name"] }}</h1>
       <h4>{{ movie["title"] }}</h4>
@@ -19,14 +22,13 @@
     </div>
 
     <div class="movie_desc">
-
       <div class="selector-wrap">
         <ul class="nav nav-tabs">
           <li class="nav-item">
-            <a class="nav-link active" data-bs-toggle="tab" href="#Sinopsis" (click)="getTvPopular()">Sinopsis</a>
+            <a class="nav-link active" data-bs-toggle="tab" href="#Sinopsis">Sinopsis</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="tab" href="#Tráilers" (click)="getMoviePopular()">Tráilers</a>
+            <a class="nav-link" data-bs-toggle="tab" href="#Tráilers">Tráilers</a>
           </li>
         </ul>
 
@@ -34,13 +36,12 @@
           <div class="tab-pane fade active show" id="Sinopsis">
             <p class="text">
               {{ movie["overview"] }}
-              <button class="btn btn-outline-secondary btn-sm" (click)="onBack()">
-                Regresar
-              </button>
             </p>
           </div>
-          <div class="tab-pane fade" id="Tráilers">
-             trailers
+          <div class="tab-pane fade container" id="Tráilers">
+            <div *ngFor="let video of videos; let i = index">
+              <app-trailers [num]="i" [video]="video"></app-trailers>
+             </div>
           </div>
        </div>
      </div>

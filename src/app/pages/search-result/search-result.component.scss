@@ -12,6 +12,7 @@
 
   h1{
     font-size: 40px;
+    color: white;
     position: sticky;
   }
 
@@ -21,8 +22,7 @@
 
   .wrapper {
     display: flex;
-    align-items: center;
-    flex-direction: column; 
+    align-items: center; 
     justify-content: center;
     width: 100%;
     min-height: 100%;

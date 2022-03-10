@@ -7,6 +7,7 @@ import { ResponseMovies } from '../interfaces/ResponseMovies.interface';
 import { ResponseTrending } from '../interfaces/ResponseTrending.interface';
 import { ResponsePopularTv } from '../interfaces/ResponsePopularTv.interface';
 import { ResponseCredits } from '../interfaces/responseCredits.interface';
+import { ResponseVideos } from '../interfaces/ResponseVideos.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -58,11 +59,15 @@ export class TmdbService {
   }
 
   public getCreditsMovie(id: number): Observable<ResponseCredits>{
-    return this.http.get<ResponseCredits>(`${this.BASE_URL}movie/${id}/credits?api_key=${this.API_KEY}&language=en-US`)
+    return this.http.get<ResponseCredits>(`${this.BASE_URL}movie/${id}/credits?api_key=${this.API_KEY}&language=es-ES`)
   }
 
   public getCreditsTv(id: number): Observable<any>{
-    return this.http.get<any>(`${this.BASE_URL}tv/${id}/credits?api_key=${this.API_KEY}&language=en-US`)
+    return this.http.get<any>(`${this.BASE_URL}tv/${id}/credits?api_key=${this.API_KEY}&language=es-ES`)
+  }
+
+  public getVideos(id: number, language: string, platform: string): Observable<ResponseVideos>{
+    return this.http.get<ResponseVideos>(`${this.BASE_URL}${platform}/${id}/videos?api_key=${this.API_KEY}&language=${language}`)
   }
 
   private setAuthorization(): HttpHeaders{
