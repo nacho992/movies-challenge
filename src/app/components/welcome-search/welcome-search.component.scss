@@ -9,7 +9,8 @@ section{
 .content_wrapper {
     align-items: flex-start;
     align-content: flex-start;
-    
+    max-width: 1400px;
+    margin: auto;
     #carouselId .carousel-item {
         img {
             border-radius: 0px 0px 12px 12px;
