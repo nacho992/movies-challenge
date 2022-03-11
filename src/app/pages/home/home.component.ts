@@ -34,7 +34,7 @@ export class HomeComponent implements OnInit {
   }
 
   public getMoviePopular(): void{
-    this.tmbdService.getPopularMovies().subscribe( (res:ResponseMovies) => {
+    this.tmbdService.getPopularMovies(1).subscribe( (res:ResponseMovies) => {
       this.popularMovies = [...res.results]
     })
   }

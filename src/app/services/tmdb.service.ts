@@ -25,8 +25,8 @@ export class TmdbService {
     return this.http.get<ResponseMovies>(`${this.BASE_URL}movie/now_playing?api_key=${this.API_KEY}&language=es-ES&page=1`)
   }
 
-  public getPopularMovies(): Observable<ResponseMovies>{
-    return this.http.get<ResponseMovies>(`${this.BASE_URL}movie/popular?api_key=${this.API_KEY}&language=es-ES&page=1`)
+  public getPopularMovies(page: number): Observable<ResponseMovies>{
+    return this.http.get<ResponseMovies>(`${this.BASE_URL}movie/popular?api_key=${this.API_KEY}&language=es-ES&page=${page}`)
   }
 
   public getPopularTv(): Observable<ResponsePopularTv>{
@@ -37,12 +37,12 @@ export class TmdbService {
     return this.http.get<any>(`${this.BASE_URL}search/multi?api_key=${this.API_KEY}&language=es-ES&query=${title}&page=${page}&include_adult=false`)
   }
 
-  public moviesTopRate(): Observable<ResponseMovies>{
-    return this.http.get<ResponseMovies>(`${this.BASE_URL}movie/top_rated?api_key=${this.API_KEY}&language=es-ES&page=1`)
+  public moviesTopRate(page: number): Observable<ResponseMovies>{
+    return this.http.get<ResponseMovies>(`${this.BASE_URL}movie/top_rated?api_key=${this.API_KEY}&language=es-ES&page=${page}`)
   }
 
-  public moviesUpcoming(): Observable<ResponseMovies>{
-    return this.http.get<ResponseMovies>(`${this.BASE_URL}movie/upcoming?api_key=${this.API_KEY}&language=es-ES&page=1`)
+  public moviesUpcoming(page: number): Observable<ResponseMovies>{
+    return this.http.get<ResponseMovies>(`${this.BASE_URL}movie/upcoming?api_key=${this.API_KEY}&language=es-ES&page=${page}`)
   }
 
   public getTrending(): Observable<ResponseTrending> {
