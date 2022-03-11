@@ -147,6 +147,7 @@
     min-height: 350px;
     height: auto;
     .info_section{
+      display: block;
       background: linear-gradient(to top, rgb(20, 20, 19) 50%, transparent 100%);
       grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
       padding: 10px;
@@ -172,7 +173,7 @@
   
 }
 
-@media (max-width: 580px) {
+@media (max-width: 590px) {
   .movie_card{
     width: 100%;
     //margin: 0px auto; 

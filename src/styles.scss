@@ -9,16 +9,17 @@
 @import '~bootstrap/scss/bootstrap';
 
 body{
-  background: linear-gradient(to top, #212529  20%, transparent 100%);
+  background: linear-gradient(to top, #322738  60%, transparent 100%);
 }
 
 /* Colors */
 :root{
   --secondary-color: #aa0fe4;
+  --backgroundColor: #322738;
 }
 
 .background{
-  background: linear-gradient(to bottom, #212529 20%, transparent 100%);
+  background: linear-gradient(to bottom, #212529 80%, transparent 100%);
   position: absolute;
   -webkit-background-size: cover;
   -moz-background-size: cover;
