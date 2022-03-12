@@ -84,11 +84,11 @@
         overflow: auto;
       }
       .slides{
-        display: grid;
         grid-column-start: 4;
         grid-column-end: 1;
-        grid-row-end: 3;
-        z-index: 2;
+        max-width: 1200px;
+        margin: auto;
+        justify-content: flex-start;
       }
       .text{
         color: #cfd6e1;
@@ -129,18 +129,6 @@
 }
 
 @media screen and (max-width: 1000px) {
-  .movie_card{
-    width: 100%;
-    .info_section{
-      grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
-      .movie_desc{
-        display: block;
-      }
-    }
-  }
-}
-
-@media screen and (max-width: 768px) {
   .movie_card{
     width: 100%;
     //margin: 70px auto; 

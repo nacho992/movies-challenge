@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { tap } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
@@ -50,20 +49,8 @@ export class TmdbService {
     return this.http.get<ResponseTrending>(`${this.BASE_URL}/trending/all/day?api_key=${this.API_KEY}&language=es-ES&page=1`)
   }
 
-  public detailsMovie(id: number): Observable<any> {
-    return this.http.get<any>(`${this.BASE_URL}movie/${id}?api_key=${this.API_KEY}&language=es-ES&page=1`)
-  }
-
-  public detailsTv(id: number): Observable<any> {
-    return this.http.get<any>(`${this.BASE_URL}tv/${id}?api_key=${this.API_KEY}&language=es-ES&page=1`)
-  }
-
-  public getCreditsMovie(id: number): Observable<ResponseCredits>{
-    return this.http.get<ResponseCredits>(`${this.BASE_URL}movie/${id}/credits?api_key=${this.API_KEY}&language=es-ES`)
-  }
-
-  public getCreditsTv(id: number): Observable<any>{
-    return this.http.get<any>(`${this.BASE_URL}tv/${id}/credits?api_key=${this.API_KEY}&language=es-ES`)
+  public getCreditsTvOrMovies(id: number, media: string){
+    return this.http.get<any>(`${this.BASE_URL}${media}/${id}/credits?api_key=${this.API_KEY}&language=es-ES`)
   }
 
   public getVideos(id: number, language: string, platform: string): Observable<ResponseVideos>{

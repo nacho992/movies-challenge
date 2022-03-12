@@ -1,21 +1,19 @@
-<app-alert></app-alert>
-<div class="movie_card" id="bright" *ngIf="movie$ | async as movie">
+<div class="movie_card" id="bright" *ngIf="serie$ | async as serie">
   <div class="info_section">
     <div class="movie_header">
       <button class="btn btn-outline-secondary btn-lg" (click)="onBack()">
         Regresar
       </button>
-      <img class="locandina" src="https://image.tmdb.org/t/p/w500/{{ movie.backdrop_path }}" alt="" />
-      <h4>{{ movie["title"] }}</h4>
-      <h5>{{ movie["release_date"] | date }}</h5>
-      <img *ngIf="movie.runtime" class="icons" src="../../../../assets/icons/clock-history.svg" alt="time" />
-      <span class="minutes" *ngIf="movie.runtime">{{ movie["runtime"] }}min</span>
-      <p class="type" *ngFor="let genre of movie['genres']">
+      <img class="locandina" src="https://image.tmdb.org/t/p/w500/{{ serie.backdrop_path }}" alt="" />
+      <h4>{{ serie["name"] }}</h4>
+      <h5>{{ serie["first_air_date"] | date }} - {{ serie["last_air_date"] | date }}</h5>
+      <h6>Temporadas {{serie['number_of_seasons']}}</h6>
+      <p class="type" *ngFor="let genre of serie['genres']">
         {{ genre["name"] }}
       </p>
 
       <h2>
-        <img class="icons" src="../../../../assets/icons/star-fill.svg" alt="" />{{ movie["vote_average"] }}/10
+        <img class="icons" src="../../../../assets/icons/star-fill.svg" alt="" />{{ serie["vote_average"] }}/10
       </h2>
     </div>
 
@@ -33,7 +31,7 @@
         <div id="myTabContent" class="tab-content">
           <div class="tab-pane fade active show" id="Sinopsis">
             <p class="text">
-              {{ movie["overview"] }}
+              {{ serie["overview"] }}
             </p>
           </div>
           <div class="tab-pane fade container" id="Tráilers">
@@ -44,8 +42,8 @@
        </div>
      </div>
 
-      <div class="slides">
-        <app-slides-cards [cast]="credits">Elenco</app-slides-cards>
+      <div class="slides" *ngIf="credits">
+        <app-slides-cards [cast]="credits"></app-slides-cards>
       </div>
     </div>
   </div>
@@ -54,10 +52,10 @@
       'background-image':
         'url(' +
         'https://image.tmdb.org/t/p/w500/' +
-        movie['backdrop_path'] +
+        serie['backdrop_path'] +
         ')'
     }"></div>
-  <div *ngIf="movie['backdrop_path'] === null || error" class="blur_back bright_back" [ngStyle]="{
+  <div *ngIf="serie['backdrop_path'] === null || error" class="blur_back bright_back" [ngStyle]="{
       'background-image':
         'url(' +
         'https://media.istockphoto.com/vectors/page-not-found-error-with-film-flap-design-vector-id1265221960?k=20&m=1265221960&s=170667a&w=0&h=jCITUlo5a7s5fue3XrX2WB8FOK9VnbaWeLCHB8Ovj-c=' +
@@ -65,7 +63,7 @@
     }"></div>
 </div>
 
-<div *ngIf="error || !movie$" class="not-found">
+<div *ngIf="error || !serie$" class="not-found">
   <button class="btn btn-outline-secondary btn-sm" (click)="onBack()">
     Regresar
   </button>

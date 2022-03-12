@@ -1,6 +1,6 @@
 
 <div *ngIf="popularMovie$ | async as popularMovies">
-    <div class="card" [routerLink]="['/movies-details', popularMovies['id'], popularMovies['media_type']]">
+    <div class="card" [routerLink]="['/movies-details', popularMovies['id']]">
         <div class="content">
         <div class="img">
             <img src="https://image.tmdb.org/t/p/w500/{{popularMovies.backdrop_path}}" alt="" />
@@ -24,13 +24,12 @@
 </div>
 
 <div *ngIf="trending$ | async as trending">
-    <div class="card" [routerLink]="['/movies-details', trending['id'], trending['media_type']]">
+    <div class="card" *ngIf=" trending['media_type'] == 'movie' " [routerLink]="['/movies-details', trending['id']]" [ngIfElse]="Serie">
         <div class="content">
         <div class="img">
             <img src="https://image.tmdb.org/t/p/w500/{{trending.backdrop_path}}" alt="" />
         </div>
         <div class="details">
-            <div class="name"*ngIf="trending['name']">{{trending['name'] | slice:0:35}}</div>
             <div class="name"*ngIf="trending['title']">{{trending['title'] | slice:0:35}}</div>
             <div class="job">{{trending['release_date'] | date}}</div>
             <div class="card__rating">
@@ -47,8 +46,31 @@
     </div>
 </div>
 
+<div *ngIf="trending$ | async as trendingSerie" #Serie>
+    <div class="card" *ngIf=" trending['media_type'] == 'tv'" [routerLink]="['/series-details', trendingSerie['id']]" >
+        <div class="content">
+        <div class="img">
+            <img src="https://image.tmdb.org/t/p/w500/{{trendingSerie.backdrop_path}}" alt="" />
+        </div>
+        <div class="details">
+            <div class="name"*ngIf="trendingSerie['name']">{{trendingSerie['name'] | slice:0:35}}</div>
+            <div class="job">{{trendingSerie['release_date'] | date}}</div>
+            <div class="card__rating">
+                {{trendingSerie['vote_average']}}
+            </div>
+        </div>
+
+        <div class="multi-button-more">
+            <button class="fas fa-heart">
+            <img as="image" width="21" height="21" src="../../../../assets/icons/three-dots-vertical.svg" alt="more" />
+            </button>
+        </div>
+        </div>
+    </div>
+</div>
+
 <div *ngIf="popularTv$ | async as popularTv">
-    <div class="card" [routerLink]="['/movies-details', popularTv['id'], 'tv']">
+    <div class="card" [routerLink]="['/series-details', popularTv['id']]">
         <div class="content">
         <div class="img">
             <img src="https://image.tmdb.org/t/p/w500/{{popularTv.backdrop_path}}" alt="" />
@@ -66,6 +88,24 @@
             <button class="fas fa-heart">
             <img as="image" width="21" height="21" src="../../../../assets/icons/three-dots-vertical.svg" alt="more" />
             </button>
+        </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="cast$ | async as cast">
+    <div class="card">
+        <div class="content">
+            <div class="img" *ngIf="cast.profile_path">
+                <img src="https://image.tmdb.org/t/p/w500/{{cast.profile_path}}" alt="" />
+            </div>
+            <div *ngIf="cast.profile_path == null">
+                <img class="img-error" alt="">
+            </div>
+
+        <div class="details">
+            <div class="name">{{cast['name'] | slice:0:35}}</div>
+            <div class="job">{{cast['character']}}</div>
         </div>
         </div>
     </div>

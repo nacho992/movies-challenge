@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CastSlideComponent } from './cast-slide.component';
+import { SeriesCardComponent } from './series-card.component';
 
-describe('CastSlideComponent', () => {
-  let component: CastSlideComponent;
-  let fixture: ComponentFixture<CastSlideComponent>;
+describe('SeriesCardComponent', () => {
+  let component: SeriesCardComponent;
+  let fixture: ComponentFixture<SeriesCardComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CastSlideComponent ]
+      declarations: [ SeriesCardComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CastSlideComponent);
+    fixture = TestBed.createComponent(SeriesCardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

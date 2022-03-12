@@ -1,11 +1,10 @@
 import { DOCUMENT } from '@angular/common';
 import { Component, HostListener, Inject, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
-import { BehaviorSubject } from 'rxjs';
-import { filter, take } from 'rxjs/operators';
+import { filter } from 'rxjs/operators';
 import { Movies } from 'src/app/interfaces/Movies.interface';
 import { ResponseMovies } from 'src/app/interfaces/ResponseMovies.interface';
-import { TmdbService } from 'src/app/services/tmdb.service';
+import { MoviesService } from '../movies.service';
 
 @Component({
   selector: 'app-movies-grid',
@@ -16,7 +15,6 @@ export class MoviesGridComponent implements OnInit {
   public titlePage: string;
   public movies: Movies[] = [];
   public query = '';
-  public movies$: BehaviorSubject<Movies[]> = new BehaviorSubject(null);
 
   //by InfiniteScroll
   private moreData = true;
@@ -28,7 +26,7 @@ export class MoviesGridComponent implements OnInit {
  /* ------------------ */
 
   constructor(
-    private tmdbService: TmdbService,
+    private moviesService: MoviesService,
     private route: ActivatedRoute,
     private router: Router,
     @Inject(DOCUMENT) private document: Document
@@ -45,7 +43,6 @@ export class MoviesGridComponent implements OnInit {
       .subscribe(() => {
         //reset
         this.movies = [];
-        this.movies$.next(this.movies);
         this.titlePage = '';
         this.page = 1
         this.getData();
@@ -71,36 +68,38 @@ export class MoviesGridComponent implements OnInit {
         break;
       }
     }
+
   }
 
   private getPopulars() {
-    this.tmdbService.getPopularMovies(this.page).subscribe((res: ResponseMovies) => {
-      this.stopMoreData(res);
-      this.movies = [...this.movies, ...res.results];
-      this.movies$.next(this.movies);
-    });
+    this.moviesService.getPopularMovies(this.page).subscribe(res => {
+      this.updateThisMovies();
+    })
   }
 
   private getTopRate() {
-    this.tmdbService.moviesTopRate(this.page).subscribe((res: ResponseMovies) => {
-      this.stopMoreData(res);
-      this.movies = [...this.movies, ...res.results];
-      this.movies$.next(this.movies);
-    });
+    this.moviesService.moviesTopRate(this.page).subscribe(res => {
+      this.updateThisMovies();
+    })
   }
 
   private getUpComing() {
-    this.tmdbService.moviesUpcoming(this.page).subscribe((res: ResponseMovies) => {
-      this.stopMoreData(res);
-      this.movies = [...this.movies, ...res.results];
-      this.movies$.next(this.movies);
-    });
+    this.moviesService.moviesUpcoming(this.page).subscribe(res => {
+      this.updateThisMovies();
+    })
+  }
+
+  private updateThisMovies(){
+    this.moviesService.moviesInService.subscribe(data => {
+      this.stopMoreData(data);
+      this.movies = [...this.movies, ...data.results];
+    })
   }
 
   //------INFINITE SCROLL-----------
-  private stopMoreData(res: ResponseMovies): void{
-    this.totalPage = res.total_pages
-    if (res.total_pages === this.page) {
+  private stopMoreData(movies: ResponseMovies): void{
+    this.totalPage = movies.total_pages
+    if (movies.total_pages === this.page) {
       this.moreData = false
     }
   }
