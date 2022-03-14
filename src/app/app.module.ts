@@ -9,6 +9,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { StoreModule } from '@ngrx/store';
 import { searchHistory } from './reducers/state//searchHistory.reducer';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 
 @NgModule({
@@ -23,6 +25,12 @@ import { searchHistory } from './reducers/state//searchHistory.reducer';
     HttpClientModule,
     CommonModule,
     StoreModule.forRoot({ history: searchHistory}),
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the app is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    }),
    
   ],
   providers: [],
