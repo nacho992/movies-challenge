@@ -16,6 +16,10 @@ const routes: Routes = [
     loadChildren: () => import('./pages/movies/movies-grid/movies-grid.module').then( m => m.MoviesGridModule)
   },
   {
+    path: 'tv-series/:category',
+    loadChildren: () => import('./pages/series/series-grid/series-grid.module').then(m => m.SeriesGridModule)
+  },
+  {
     path: 'movies-details/:id',
     loadChildren: () => import('./pages/movies/details/details.module').then( m => m.DetailsModule)
   },

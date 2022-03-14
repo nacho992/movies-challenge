@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SeriesCardComponent } from './series-card.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -9,7 +10,11 @@ import { SeriesCardComponent } from './series-card.component';
     SeriesCardComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule
+  ],
+  exports: [
+    SeriesCardComponent
   ]
 })
 export class SeriesCardModule { }

@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { SeriesGridRoutingModule } from './series-grid-routing.module';
 import { SeriesGridComponent } from './series-grid.component';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { SeriesCardModule } from '../series-card/series-card.module';
 
 
 @NgModule({
@@ -11,7 +13,9 @@ import { SeriesGridComponent } from './series-grid.component';
   ],
   imports: [
     CommonModule,
-    SeriesGridRoutingModule
+    SeriesGridRoutingModule,
+    InfiniteScrollModule,
+    SeriesCardModule
   ]
 })
 export class SeriesGridModule { }

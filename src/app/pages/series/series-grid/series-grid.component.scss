@@ -1,0 +1,28 @@
+.wrapper {
+    display: block;
+    width: 100%;
+    min-height: 100%;
+    h1{
+        font-size: 2rem;
+        padding: 50px 15px 20px 50px;
+        text-shadow: 7px 1px 25px #a700ff;
+        color: white;
+    }
+    .grid{
+        max-width: 1200px;
+        margin: auto;
+        display:grid;
+        grid-template-columns: repeat( auto-fill, minmax(12rem, 1fr) );
+        padding:3rem;
+      }
+  }
+  .no-hidden{
+    position: fixed;
+    bottom:  10px;
+    right: 10px;
+    visibility: visible;
+    img{
+      width: 23px;
+      height: 23px;
+    }
+}

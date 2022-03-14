@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { DetailsTv } from 'src/app/interfaces/DetailsTv.interface';
 
 @Component({
   selector: 'app-series-card',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./series-card.component.scss']
 })
 export class SeriesCardComponent implements OnInit {
+
+  @Input() serie: DetailsTv
 
   constructor() { }
 

@@ -1,1 +1,22 @@
-<p>series-grid works!</p>
+<div class="background"></div>
+<div class="wrapper">
+    <h1 *ngIf="series">{{titlePage}}</h1>
+    <div class="grid" infinite-scroll (scrolled)="onScrollDown()">
+
+        <article *ngFor="let serie of series">
+          <app-series-card [serie]="serie"></app-series-card>
+        </article>
+
+    </div>
+</div>
+
+<button
+  [ngClass]="'no-hidden'"
+  *ngIf="showGoUpButton"
+  (click)="onScrollTop()"
+  class="btn btn-outline-secondary btn-lg mt-3"
+  class="btn btn-dark"
+>
+  página: {{page}}/{{totalPage}}
+  <img src="../../../assets/icons/arrow-up-circle-fill.svg" alt="">
+</button>

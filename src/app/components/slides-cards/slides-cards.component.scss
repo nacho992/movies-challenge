@@ -2,9 +2,13 @@
 	overflow-x: unset;
     overflow-y: hidden;
     max-width: 1200px;
-  .col-3{
-    width: 18%;
-  }
+	.container{
+		display: flex;
+		$size: 800px;
+		.col-3{
+			width: $size/4;
+		  }
+	}
 }
 
 .pb-4 {
@@ -17,63 +21,3 @@
 .mt-4 {
     margin-top: 0rem !important;
 }
-
-.container{
-	display: flex;
-}
-
-@media (max-width: 1167px){
-	.scrolling-wrapper{
-
-	  .col-3{
-		width: 20%;
-	  }
-	}
-}
-
-@media (max-width: 1043px){
-	.scrolling-wrapper{
-
-	  .col-3{
-		width: 24%;
-	  }
-	}
-}
-
-@media (max-width: 893px){
-	.scrolling-wrapper{
-
-	  .col-3{
-		width: 28%;
-	  }
-	}
-}
-
-@media (max-width: 736px){
-	.scrolling-wrapper{
-
-	  .col-3{
-		width: 35%;
-	  }
-	}
-}
-
-@media (max-width: 590px){
-	.scrolling-wrapper{
-
-	  .col-3{
-		width: 60%;
-	  }
-	}
-}
-
-@media (max-width: 415px){
-	.scrolling-wrapper{
-
-	  .col-3{
-		width: 70%;
-	  }
-	}
-}
-
-
