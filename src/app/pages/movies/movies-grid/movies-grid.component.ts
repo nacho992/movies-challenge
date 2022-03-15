@@ -73,27 +73,25 @@ export class MoviesGridComponent implements OnInit {
 
   private getPopulars() {
     this.moviesService.getPopularMovies(this.page).subscribe(res => {
-      this.updateThisMovies();
+      this.updateThisMovies(res);
     })
   }
 
   private getTopRate() {
     this.moviesService.moviesTopRate(this.page).subscribe(res => {
-      this.updateThisMovies();
+      this.updateThisMovies(res);
     })
   }
 
   private getUpComing() {
     this.moviesService.moviesUpcoming(this.page).subscribe(res => {
-      this.updateThisMovies();
+      this.updateThisMovies(res);
     })
   }
 
-  private updateThisMovies(){
-    this.moviesService.moviesInService.subscribe(data => {
-      this.stopMoreData(data);
-      this.movies = [...this.movies, ...data.results];
-    })
+  private updateThisMovies(movies: ResponseMovies){
+    this.stopMoreData(movies);
+    this.movies = [...this.movies, ...movies.results];
   }
 
   //------INFINITE SCROLL-----------

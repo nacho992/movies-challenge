@@ -72,27 +72,25 @@ export class SeriesGridComponent implements OnInit {
 
   private getPopulars() {
     this.seriesService.getPopularSeries(this.page).subscribe(res => {
-      this.updateThisMovies();
+      this.updateThisMovies(res);
     })
   }
 
   private getTopRate() {
     this.seriesService.seriesTopRate(this.page).subscribe(res => {
-      this.updateThisMovies();
+      this.updateThisMovies(res);
     })
   }
 
   private getAiringToday() {
     this.seriesService.seriesAiringToday(this.page).subscribe(res => {
-      this.updateThisMovies();
+      this.updateThisMovies(res);
     })
   }
 
-  private updateThisMovies(){
-    this.seriesService.seriesSerivice.subscribe(data => {
-      this.stopMoreData(data);
-      this.series = [...this.series, ...data.results];
-    })
+  private updateThisMovies(series: any){
+    this.stopMoreData(series);
+    this.series = [...this.series, ...series.results];
   }
 
   //------INFINITE SCROLL-----------
