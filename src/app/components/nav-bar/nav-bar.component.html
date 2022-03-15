@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
     <a class="navbar-brand" [routerLink]="['home']">
-      <img src="../../../assets/logo.jpg" alt="" />
+      <img class="img-icon" src="../../../assets/logo.jpg" alt="" />
     </a>
 
     <button
@@ -109,6 +109,7 @@
             triggers="manual"
             #HistoryList="ngbPopover"
             (click)="HistoryList.open()"
+            (keyup)="onSearchPreview(inputSearch.value)"
             >
             <button class="btn btn-outline-secondary" (click)="onSearch(inputSearch.value)" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">Buscar</button>
         </div>
@@ -116,9 +117,21 @@
 
      <li class="nav-item">
       <ng-template #HistoryContent>
+        <!-- History -->
           <li class="nav-item" *ngFor="let title of titles">
-            <img src="../../../assets/icons/search.svg" alt="">
+            <img class="img-icon" src="../../../assets/icons/search.svg" alt="">
             <a (click)="onSearch(title)" aria-current="page">{{title}}</a>
+          </li>
+          <!-- search preview -->
+          <li class="nav-item" *ngFor="let movie of movies | slice:0:4">
+            <div (click)="onSearch(movie.name)">
+              <img *ngIf="movie.name" class="img-movie" src="https://image.tmdb.org/t/p/w500/{{movie.backdrop_path}}" alt="" />
+              <a  aria-current="page">{{movie.name}}</a>
+            </div>
+            <div (click)="onSearch(movie.title)">
+              <img *ngIf="movie.title" class="img-movie" src="https://image.tmdb.org/t/p/w500/{{movie.backdrop_path}}" alt="" />
+              <a aria-current="page">{{movie.title}}</a>
+            </div>
           </li>
       </ng-template>
     </li> 

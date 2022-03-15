@@ -37,6 +37,8 @@ export class NgbdModalContent implements OnInit {
         selector: 'app-trailers',
         templateUrl: './trailers.component.html'
 })
+
+
 export class TrailersComponent {
 
   @Input() num;
