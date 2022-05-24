@@ -4,7 +4,7 @@
       <button class="btn btn-outline-secondary btn-lg" (click)="onBack()">
         Regresar
       </button>
-      <img class="locandina" src="https://image.tmdb.org/t/p/w500/{{ serie.backdrop_path }}" alt="" />
+      <img class="locandina" src="https://image.tmdb.org/t/p/w500/{{ serie.poster_path }}" alt="" />
       <h4>{{ serie["name"] }}</h4>
       <h5>{{ serie["first_air_date"] | date }} - {{ serie["last_air_date"] | date }}</h5>
       <h6>Temporadas {{serie['number_of_seasons']}}</h6>
@@ -51,7 +51,7 @@
   <div class="blur_back bright_back" [ngStyle]="{
       'background-image':
         'url(' +
-        'https://image.tmdb.org/t/p/w500/' +
+        'https://image.tmdb.org/t/p/w1280/' +
         serie['backdrop_path'] +
         ')'
     }"></div>

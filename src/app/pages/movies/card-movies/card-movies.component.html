@@ -1,5 +1,6 @@
 <div class="card" [routerLink]="['/movies-details', movie['id']]">
-    <img src="https://image.tmdb.org/t/p/w500/{{movie.backdrop_path}}" alt=""/>
+  <img *ngIf="movie.poster_path; else backdrop" src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}" alt=""/>
+  <img #backdrop *ngIf="!movie.poster_path" src="https://image.tmdb.org/t/p/w500/{{movie.backdrop_path}}" alt=""/>
   <div class="card-body">
     <div class="card_title"*ngIf="movie['name']">{{movie['name'] | slice:0:30}}</div>
     <div class="card_title"*ngIf="movie['title']">{{movie['title'] | slice:0:30}}</div>

@@ -1,5 +1,6 @@
 <div class="card" [routerLink]="['/series-details', serie['id']]">
-    <img src="https://image.tmdb.org/t/p/w500/{{serie.backdrop_path}}" alt=""/>
+    <img *ngIf="serie.poster_path; else backdrop" src="https://image.tmdb.org/t/p/w500/{{serie.poster_path}}" alt=""/>
+    <img #backdrop *ngIf="!serie.poster_path" src="https://image.tmdb.org/t/p/w500/{{serie.backdrop_path}}" alt=""/>
   <div class="card-body">
     <div class="card_title">{{serie['name'] | slice:0:30}}</div>
     <p *ngIf="serie['release_date']">{{serie['release_date']}}</p>

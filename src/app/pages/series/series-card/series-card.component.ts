@@ -9,6 +9,7 @@ import { DetailsTv } from 'src/app/interfaces/DetailsTv.interface';
 export class SeriesCardComponent implements OnInit {
 
   @Input() serie: DetailsTv
+  public backdrop: string
 
   constructor() { }
 

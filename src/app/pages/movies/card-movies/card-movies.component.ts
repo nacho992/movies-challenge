@@ -9,6 +9,7 @@ import { Movies } from 'src/app/interfaces/Movies.interface';
 export class CardMoviesComponent implements OnInit {
 
   @Input() movie: Movies
+  public backdrop: string
 
   constructor() { }
 

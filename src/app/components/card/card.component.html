@@ -1,41 +1,63 @@
 <article>
-    <div class="card" *ngIf="movie['media_type'] == 'movie'">
-        <div class="content">
-        <div *ngIf="movie.backdrop_path" class="img" [routerLink]="['/movies-details', movie.id]">
-            <img src="https://image.tmdb.org/t/p/w500/{{movie.backdrop_path}}" alt="" />
-        </div>
-        <div *ngIf="!movie.backdrop_path" class="img" [routerLink]="['/movies-details', movie.id]">
-            <img class="img-error"  alt="" />
-        </div>
-        <div class="details">
-            <div class="name"*ngIf="movie['name']">{{movie['name'] | slice:0:30}}</div>
-            <div class="name"*ngIf="movie['title']">{{movie['title'] | slice:0:30}}</div>
-            <div class="job">{{movie['release_date'] | date}}</div>
-            <div class="card__rating">
-                {{movie['vote_average']}}
-            </div>      
-        </div>
+  <div class="card" *ngIf="movie['media_type'] == 'movie'">
+    <div class="content">
+      <div class="img" [routerLink]="['/movies-details', movie.id]">
+        <img
+          *ngIf="movie.poster_path; else backdrop"
+          src="https://image.tmdb.org/t/p/w500/{{ movie.poster_path }}"
+          alt=""
+        />
+        <img
+          #backdrop
+          *ngIf="!movie.poster_path"
+          src="https://image.tmdb.org/t/p/w500/{{ movie.backdrop_path }}"
+          alt=""
+        />
+      </div>
 
+      <div class="details">
+        <div class="name" *ngIf="movie['name']">
+          {{ movie["name"] | slice: 0:30 }}
         </div>
+        <div class="name" *ngIf="movie['title']">
+          {{ movie["title"] | slice: 0:30 }}
+        </div>
+        <div class="job">{{ movie["release_date"] | date }}</div>
+        <div class="card__rating">
+          {{ movie["vote_average"] }}
+        </div>
+      </div>
     </div>
+  </div>
 
-    <div class="card" *ngIf="movie['media_type'] == 'tv'">
-        <div class="content">
-        <div *ngIf="movie.backdrop_path" class="img" [routerLink]="['/series-details', movie.id]">
-            <img src="https://image.tmdb.org/t/p/w500/{{movie.backdrop_path}}" alt="" />
-        </div>
-        <div *ngIf="!movie.backdrop_path" class="img" [routerLink]="['/movies-details', movie.id]">
-            <img class="img-error"  alt="" />
-        </div>
-        <div class="details">
-            <div class="name"*ngIf="movie['name']">{{movie['name'] | slice:0:30}}</div>
-            <div class="name"*ngIf="movie['title']">{{movie['title'] | slice:0:30}}</div>
-            <div class="job">{{movie['release_date'] | date}}</div>
-            <div class="card__rating">
-                {{movie['vote_average']}}
-            </div>      
-        </div>
+  <div class="card" *ngIf="movie['media_type'] == 'tv'">
+    <div class="content">
+      <div class="img" [routerLink]="['/series-details', movie.id]">
+        <img
+          *ngIf="movie.poster_path; else backdrop"
+          src="https://image.tmdb.org/t/p/w500/{{ movie.poster_path }}"
+          alt=""
+        />
+        <img
+          #backdrop
+          *ngIf="!movie.poster_path"
+          src="https://image.tmdb.org/t/p/w500/{{ movie.backdrop_path }}"
+          alt=""
+        />
+      </div>
 
+      <div class="details">
+        <div class="name" *ngIf="movie['name']">
+          {{ movie["name"] | slice: 0:30 }}
         </div>
+        <div class="name" *ngIf="movie['title']">
+          {{ movie["title"] | slice: 0:30 }}
+        </div>
+        <div class="job">{{ movie["release_date"] | date }}</div>
+        <div class="card__rating">
+          {{ movie["vote_average"] }}
+        </div>
+      </div>
     </div>
-  </article>
+  </div>
+</article>

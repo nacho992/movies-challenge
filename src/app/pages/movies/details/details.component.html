@@ -5,7 +5,7 @@
       <button class="btn btn-outline-secondary btn-lg" (click)="onBack()">
         Regresar
       </button>
-      <img class="locandina" src="https://image.tmdb.org/t/p/w500/{{ movie.backdrop_path }}" alt="" />
+      <img class="locandina" src="https://image.tmdb.org/t/p/w500/{{ movie.poster_path }}" alt="" />
       <h4>{{ movie["title"] }}</h4>
       <h5>{{ movie["release_date"] | date }}</h5>
       <img *ngIf="movie.runtime" class="icons" src="../../../../assets/icons/clock-history.svg" alt="time" />
@@ -53,7 +53,7 @@
   <div class="blur_back bright_back" [ngStyle]="{
       'background-image':
         'url(' +
-        'https://image.tmdb.org/t/p/w500/' +
+        'https://image.tmdb.org/t/p/w1280/' +
         movie['backdrop_path'] +
         ')'
     }"></div>

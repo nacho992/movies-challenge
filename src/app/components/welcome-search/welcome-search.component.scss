@@ -1,55 +1,87 @@
-section{
-    width: 100%;
-    display: contents;
+section {
+  width: 100%;
+  display: contents;
 }
-.portada{
-    background-size: cover;
+.portada {
+    margin: -6.75rem 0 1.5rem;
 }
 
 .content_wrapper {
-    align-items: flex-start;
-    align-content: flex-start;
-    max-width: 1400px;
-    margin: auto;
-    #carouselId .carousel-item {
-        img {
-            border-radius: 0px 0px 12px 12px;
-            filter: brightness(80%);
-            object-fit: cover;
-            object-position: center;
-            height: 50vh;
-            width: 100%;
-            overflow: hidden;
-        }
-        .carousel-caption{
-            left: 4%;
-            top: 30% !important;
-            transform: translateY(40%);
-            text-align: left;
-            bottom: initial;
-            h2{
-                font-size: 3em;
-                font-weight: 700;
-                line-height: 1;
-            }
-            h3{
-                font-size: 2em;
-                font-weight: 600;
-                margin: 0;
-            }
-        }
-        
+  align-items: flex-start;
+  align-content: flex-start;
+  &:after {
+    content: "";
+    background: linear-gradient(
+      to bottom,
+      rgba(8, 15, 40, 0) 0%,
+      var(--backgroundColor) 100%
+    );
+    position: absolute;
+    left: 0;
+    bottom: 277px;
+    right: 0;
+    height: 30%;
+    pointer-events: none;
+  }
+  #carouselId .carousel-item {
+    img {
+      border-radius: 0px 0px 12px 12px;
+      filter: brightness(80%);
+      object-fit: cover;
+      object-position: center;
+      height: 80vh;
+      width: 100%;
+      overflow: hidden;
     }
-    
+    .carousel-caption {
+      z-index: 1;
+      left: 18%;
+      top: 40% !important;
+      transform: translateY(40%);
+      text-align: left;
+      bottom: initial;
+      h2 {
+        font-size: 3em;
+        font-weight: 700;
+        line-height: 1;
+      }
+      h3 {
+        font-size: 2em;
+        font-weight: 600;
+        margin: 0;
+      }
+    }
+  }
 }
 
-@media (max-width: 700px) {
-    .content_wrapper {
-        #carouselId .carousel-item {
-            .carousel-caption{
-                top: 0% !important;
-                transform: translateY(0%);
-            }
-        }
+.btn-light{
+  background-color: var(--secondary-color);
+  border: none;
+  color: #fff;
+  border-radius: 20px;
+}
+
+@media (max-width: 768px) {
+  .content_wrapper {
+    height: 74vh;
+    &:after {
+      content: "";
+      background: transparent;
+      position: absolute;
+      left: 0;
+      bottom: 277px;
+      right: 0;
+      height: 30%;
+      pointer-events: none;
     }
+    #carouselId .carousel-item {
+      .carousel-caption {
+        top: 70% !important;
+        transform: translateY(0%);
+        p{
+          overflow: scroll;
+        }
+      }
+    }
+  }
 }

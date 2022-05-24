@@ -1,57 +1,73 @@
-<!-- <section>
-    <div class="portada">
-        <div class="content_wrapper">
-            <div class="title">
-               <h2>
-                Bienvenidos.
-               </h2>
-               <h3>
-                Millones de películas, programas de televisión y personas por descubrir. Explora ahora.
-               </h3>
-            </div>
-        </div>
-        <div class="input">
-            <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-primary" type="submit">Search</button>
-            </form>
-        </div>
-    </div>
-</section> -->
 <section>
-    <div class="portada">
-        <div class="content_wrapper">
-            <div id="carouselId" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-inner">
+  <div class="portada">
+    <div class="content_wrapper">
+      <div id="carouselId" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active" *ngIf="movies.length">
+            <img
+              src="https://image.tmdb.org/t/p/w1280/{{
+                movies[0].backdrop_path
+              }}"
+              class="d-block img-fluid"
+              alt="Random first slide"
+            />
+            <div
+              class="carousel-caption d-block img-fluid"
+              [routerLink]="['/movies-details', movies[0].id]"
+            >
+              <h2>{{ movies[0]["title"] }}</h2>
+              <p>{{ movies[0]["overview"] }}</p>
+              <button
+                type="button"
+                class="btn btn-light me-2"
+                [routerLink]="['/movies-details', movies[0].id]"
+              >
+                Ver más
+              </button>
+            </div>
+          </div>
 
-                  <div class="carousel-item active" *ngIf="movies.length">
-                    <img src="https://image.tmdb.org/t/p/w500/{{movies[0].backdrop_path}}" [routerLink]="['/movies-details', movies[0].id]" class="d-block img-fluid" alt="Random first slide">
-                    <div class="carousel-caption  d-block img-fluid" [routerLink]="['/movies-details', movies[0].id]">
-                        <h2>{{movies[0]['title']}}</h2>
-                        <p>{{movies[0]['overview']}}</p>
-                      </div>
-                  </div>
-
-                  <div class="carousel-item" *ngFor="let movie of movies | slice:1">
-                    <img src="https://image.tmdb.org/t/p/w500/{{movie.backdrop_path}}"  [routerLink]="['/movies-details', movie.id]" class="d-block img-fluid" alt="Random first slide">
-                    <div class="carousel-caption  d-block img-fluid" [routerLink]="['/movies-details', movie.id]"> 
-                        <h2>{{movie['title']}}</h2>
-                        <p>{{movie['overview']}}</p>
-                      </div>
-                  </div>
-          
-        
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselId" data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselId" data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Next</span>
-                </button>
-              </div>
+          <div class="carousel-item" *ngFor="let movie of movies | slice: 1">
+            <img
+              src="https://image.tmdb.org/t/p/w1280/{{ movie.backdrop_path }}"
+              class="d-block img-fluid"
+              alt="Random first slide"
+            />
+            <div
+              class="carousel-caption d-block img-fluid"
+              [routerLink]="['/movies-details', movie.id]"
+            >
+              <h2>{{ movie["title"] }}</h2>
+              <p>{{ movie["overview"] }}</p>
+              <button
+                type="button"
+                class="btn btn-light me-2"
+                [routerLink]="['/movies-details', movie.id]"
+              >
+                Ver más
+              </button>
+            </div>
+          </div>
         </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselId"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselId"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
     </div>
+  </div>
 </section>
-

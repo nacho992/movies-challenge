@@ -31,6 +31,14 @@ export class NavBarComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    let nav = document.querySelector("nav");
+    window.onscroll = function() {
+      if(document.documentElement.scrollTop > 20){
+        nav.classList.add("sticky");
+      }else {
+        nav.classList.remove("sticky");
+      }
+    }
   }
 
   public onSearch(value: string): void{
