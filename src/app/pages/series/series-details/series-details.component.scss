@@ -10,7 +10,7 @@
   .info_section {
     display: grid;
     justify-items: center;
-    $auto-grid-min-size: 26rem;
+    $auto-grid-min-size: 35rem;
     grid-template-columns: repeat(auto-fill, minmax($auto-grid-min-size, 1fr));
     position: relative;
     padding: 100px;
