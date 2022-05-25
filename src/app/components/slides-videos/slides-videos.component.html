@@ -1,11 +1,11 @@
 <div class="video">
-  <div class="container"  *ngFor="let video of videos; let i = index">
-    <div class="card-movie" *ngIf="video.length">
+  <div class="container"  *ngFor="let video of videosById; let i = index">
+    <div class="card-movie" *ngIf="video.videos.length">
       <div class="image">
         <img
           class="image"
           src="https://image.tmdb.org/t/p/w500/{{
-            popularMovies[i].backdrop_path
+            getImgById(video.id).backdrop_path
           }}"
           alt=""
         />
@@ -14,8 +14,8 @@
         /></span>
       </div>
       <div>
-        <div class="content" >
-          <app-trailers [video]="video[0]"></app-trailers>
+        <div class="content" *ngIf="video.videos.length">
+          <app-trailers [video]="video.videos[0]"></app-trailers>
         </div>
       </div>
     </div>

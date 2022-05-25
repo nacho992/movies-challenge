@@ -12,7 +12,7 @@ import { TmdbService } from 'src/app/services/tmdb.service';
 })
 export class SlidesVideosComponent implements OnInit {
 
-  public videos: any[] = [];
+  public videosById: any[] = []
   public popularMovies: Movies[] = [];
   constructor(private tmbdService: TmdbService) { }
 
@@ -39,13 +39,12 @@ export class SlidesVideosComponent implements OnInit {
   
   private getVideostvOrMovies(id: number, language: string, platform: string): void {
     this.tmbdService.getVideos(id, language, platform).subscribe((res) => {
-      this.videos = [...this.videos, res.results];
-      if (!res.results.length) {
-        this.tmbdService.getVideos(id, 'en-US', platform).subscribe((res) => {
-          //this.videos = [...this.videos, res.results];
-        });
-      }
+      this.videosById.push({id: id, videos: res.results})
     });
+  }
+
+  public getImgById(id: number): Movies{
+    return this.popularMovies.find(movie => movie.id == id)
   }
 
 }
