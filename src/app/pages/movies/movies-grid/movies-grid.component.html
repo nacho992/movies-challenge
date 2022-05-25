@@ -1,13 +1,11 @@
 <div class="background"></div>
 <div class="wrapper">
-    <h1 *ngIf="movies">{{titlePage}}</h1>
-    <div class="grid" infinite-scroll (scrolled)="onScrollDown()">
-
-        <article *ngFor="let movie of movies">
-          <app-card-movies [movie]="movie"></app-card-movies>
-        </article>
-
-    </div>
+  <h1 *ngIf="movies">{{ titlePage }}</h1>
+  <div class="grid" infinite-scroll (scrolled)="onScrollDown()">
+    <article *ngFor="let movie of movies">
+      <app-card-movies [movie]="movie"></app-card-movies>
+    </article>
+  </div>
 </div>
 
 <button
@@ -17,6 +15,6 @@
   class="btn btn-outline-secondary btn-lg mt-3"
   class="btn btn-dark"
 >
-  página: {{page}}/{{totalPage}}
-  <img src="../../../assets/icons/arrow-up-circle-fill.svg" alt="">
+  página: {{ page }}/{{ totalPage }}
+  <img src="../../../assets/icons/arrow-up-circle-fill.svg" alt="" />
 </button>

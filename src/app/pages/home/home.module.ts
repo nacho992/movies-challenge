@@ -7,16 +7,20 @@ import { HomeRoutingModule } from './home-routing.module';
 import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule } from '@angular/router';
 import { FooterComponent } from 'src/app/components/footer/footer.component';
+import { SlidesVideosComponent } from 'src/app/components/slides-videos/slides-videos.component';
+import { VideoModalModule } from 'src/app/components/video-modal/video-modal.module';
 
 
 @NgModule({
   declarations: [
     WelcomeSearchComponent,
     HomeComponent,
-    FooterComponent
+    FooterComponent,
+    SlidesVideosComponent
   ],
 
   imports: [
+    VideoModalModule,
     CommonModule,
     SlidesCardsModule,
     HomeRoutingModule,

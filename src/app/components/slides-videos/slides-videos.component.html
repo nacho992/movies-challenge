@@ -1,0 +1,23 @@
+<div class="video">
+  <div class="container"  *ngFor="let video of videos; let i = index">
+    <div class="card-movie" *ngIf="video.length">
+      <div class="image">
+        <img
+          class="image"
+          src="https://image.tmdb.org/t/p/w500/{{
+            popularMovies[i].backdrop_path
+          }}"
+          alt=""
+        />
+        <span class="icon-play"
+          ><img class="icon-img" src="../../../assets/icons/icon-play.png" alt=""
+        /></span>
+      </div>
+      <div>
+        <div class="content" >
+          <app-trailers [video]="video[0]"></app-trailers>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

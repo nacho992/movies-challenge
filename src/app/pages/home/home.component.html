@@ -1,57 +1,87 @@
 <app-welcome-search></app-welcome-search>
 
 <div class="header-slide">
-    <h3>Lo más Popular</h3>
-    <div class="selector-wrap">
-
-        <ul class="nav nav-tabs">
-          <li class="nav-item">
-            <a class="nav-link active" data-bs-toggle="tab" href="#Televisión" (click)="getTvPopular()">En Televisión</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="tab" href="#Cine" (click)="getMoviePopular()">En Cine</a>
-          </li>
-        </ul>
-        <div id="myTabContent" class="tab-content">
-  
-          <div class="tab-pane fade active show" id="Televisión">
-            <app-slides-cards [popularTv]="popularTv"></app-slides-cards>
-          </div>
-          <div class="tab-pane fade" id="Cine">
-            <app-slides-cards [popularMovies]="popularMovies"></app-slides-cards>
-          </div>
-       </div>
-     </div>
+  <h3>Lo más Popular</h3>
+  <div class="selector-wrap">
+    <ul class="nav nav-tabs">
+      <li class="nav-item">
+        <a
+          class="nav-link active"
+          data-bs-toggle="tab"
+          href="#Televisión"
+          (click)="getTvPopular()"
+          >En Televisión</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          data-bs-toggle="tab"
+          href="#Cine"
+          (click)="getMoviePopular()"
+          >En Cine</a
+        >
+      </li>
+    </ul>
+    <div id="myTabContent" class="tab-content">
+      <div class="tab-pane fade active show" id="Televisión">
+        <app-slides-cards [popularTv]="popularTv"></app-slides-cards>
+      </div>
+      <div class="tab-pane fade" id="Cine">
+        <app-slides-cards [popularMovies]="popularMovies"></app-slides-cards>
+      </div>
+    </div>
+  </div>
 </div>
+
+<section class="header-slide">
+  <h3>Los últimos avances</h3>
+  <app-slides-videos></app-slides-videos>
+</section>
 
 <div class="header-slide">
   <h3>Tendencias</h3>
   <div class="selector-wrap">
-
-      <ul class="nav nav-tabs">
-        <li class="nav-item">
-          <a class="nav-link active" data-bs-toggle="tab" href="#Todo" (click)="getTrending()">Todas las tendencias</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" data-bs-toggle="tab" href="#PelículasTrendingMovie" (click)="getMoviesTrending('movie')">Películas</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" data-bs-toggle="tab" href="#TelevisiónTrendingTv" (click)="getMoviesTrending('tv')">Televisión</a>
-        </li>
-      </ul>
-      <div id="myTabTendencias" class="tab-content">
-
-        <div class="tab-pane fade active show" id="Todo">
-          <app-slides-cards [trending]="trending"></app-slides-cards>
-        </div>
-        <div class="tab-pane fade" id="PelículasTrendingMovie">
-          <app-slides-cards [trending]="trendingFilter"></app-slides-cards>
-        </div>
-        <div class="tab-pane fade" id="TelevisiónTrendingTv">
-          <app-slides-cards [trending]="trendingFilter"></app-slides-cards>
-        </div>
-
-     </div>
-   </div>
+    <ul class="nav nav-tabs">
+      <li class="nav-item">
+        <a
+          class="nav-link active"
+          data-bs-toggle="tab"
+          href="#Todo"
+          (click)="getTrending()"
+          >Todas las tendencias</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          data-bs-toggle="tab"
+          href="#PelículasTrendingMovie"
+          (click)="getMoviesTrending('movie')"
+          >Películas</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          data-bs-toggle="tab"
+          href="#TelevisiónTrendingTv"
+          (click)="getMoviesTrending('tv')"
+          >Televisión</a
+        >
+      </li>
+    </ul>
+    <div id="myTabTendencias" class="tab-content">
+      <div class="tab-pane fade active show" id="Todo">
+        <app-slides-cards [trending]="trending"></app-slides-cards>
+      </div>
+      <div class="tab-pane fade" id="PelículasTrendingMovie">
+        <app-slides-cards [trending]="trendingFilter"></app-slides-cards>
+      </div>
+      <div class="tab-pane fade" id="TelevisiónTrendingTv">
+        <app-slides-cards [trending]="trendingFilter"></app-slides-cards>
+      </div>
+    </div>
+  </div>
 </div>
 <app-footer></app-footer>

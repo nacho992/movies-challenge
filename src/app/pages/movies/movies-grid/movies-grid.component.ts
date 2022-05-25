@@ -4,7 +4,7 @@ import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { Movies } from 'src/app/interfaces/Movies.interface';
 import { ResponseMovies } from 'src/app/interfaces/ResponseMovies.interface';
-import { MoviesService } from '../movies.service';
+import { TmdbService } from '../../../services/tmdb.service';
 
 @Component({
   selector: 'app-movies-grid',
@@ -26,7 +26,7 @@ export class MoviesGridComponent implements OnInit {
   /* ------------------ */
 
   constructor(
-    private moviesService: MoviesService,
+    private moviesService: TmdbService,
     private route: ActivatedRoute,
     private router: Router,
     @Inject(DOCUMENT) private document: Document

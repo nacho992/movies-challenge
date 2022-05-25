@@ -12,28 +12,23 @@ import { searchHistory } from './reducers/state//searchHistory.reducer';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 
-
 @NgModule({
-  declarations: [
-    AppComponent,
-    NavBarComponent
-  ],
+  declarations: [AppComponent, NavBarComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
     HttpClientModule,
     CommonModule,
-    StoreModule.forRoot({ history: searchHistory}),
+    StoreModule.forRoot({ history: searchHistory }),
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
       // Register the ServiceWorker as soon as the app is stable
       // or after 30 seconds (whichever comes first).
-      registrationStrategy: 'registerWhenStable:30000'
+      registrationStrategy: 'registerWhenStable:30000',
     }),
-   
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

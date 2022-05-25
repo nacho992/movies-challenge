@@ -1,0 +1,62 @@
+.video {
+  display: flex;
+  justify-content: space-between;
+  overflow-x: unset;
+  overflow-y: hidden;
+}
+.card-movie {
+  flex: 0 1 auto;
+  height: 220px;
+  width: 350px;
+  border-radius: 12px;
+  margin: 15px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
+  transition: all 0.4s ease;
+  cursor: pointer;
+  &:hover {
+    transform: translateY(-15px);
+  }
+  .content {
+    border-radius: 12px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: start;
+    margin-top: -107px;
+  }
+  .image {
+    height: 220px;
+    width: 350px;
+    background: #ff676d;
+    margin-bottom: 5px;
+    border-radius: 10px;
+    img {
+      height: 100%;
+      width: 100%;
+      border-radius: 10px;
+      object-fit: cover;
+    }
+    .icon-play {
+      position: relative;
+      top: -138px;
+      left: 153px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 3em;
+      min-height: 3em;
+      width: 1em;
+      height: 1em;
+      line-height: inherit;
+      background-position: center center;
+      background-repeat: no-repeat;
+      color: inherit;
+      box-sizing: border-box;
+      .icon-img {
+        border-radius: 50%;
+      }
+    }
+  }
+}
