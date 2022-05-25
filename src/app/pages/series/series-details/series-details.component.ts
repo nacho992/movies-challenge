@@ -38,8 +38,8 @@ export class SeriesDetailsComponent implements OnInit {
         this.error = false;
         this.tmdbService
           .getCreditsTvOrMovies(id, 'tv')
-          .subscribe((res: ResponseCredits) => {
-            this.credits = res.cast;
+          .subscribe((res: Cast[]) => {
+            this.credits = res;
           });
       },
       (err) => {

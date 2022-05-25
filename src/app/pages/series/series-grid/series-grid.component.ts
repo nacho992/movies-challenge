@@ -7,10 +7,9 @@ import { SeriesService } from '../series.service';
 @Component({
   selector: 'app-series-grid',
   templateUrl: './series-grid.component.html',
-  styleUrls: ['./series-grid.component.scss']
+  styleUrls: ['./series-grid.component.scss'],
 })
 export class SeriesGridComponent implements OnInit {
-
   public titlePage: string;
   public series: any[] = [];
   public query = '';
@@ -22,7 +21,7 @@ export class SeriesGridComponent implements OnInit {
   public showGoUpButton = false;
   private page = 1;
   public totalPage;
- /* ------------------ */
+  /* ------------------ */
 
   constructor(
     private seriesService: SeriesService,
@@ -43,7 +42,7 @@ export class SeriesGridComponent implements OnInit {
         //reset
         this.series = [];
         this.titlePage = '';
-        this.page = 1
+        this.page = 1;
         this.getData();
       });
   }
@@ -67,37 +66,40 @@ export class SeriesGridComponent implements OnInit {
         break;
       }
     }
-
   }
 
   private getPopulars() {
-    this.seriesService.getPopularSeries(this.page).subscribe(res => {
+    this.seriesService.getPopularSeries(this.page).subscribe((res) => {
       this.updateThisMovies(res);
-    })
+    });
   }
 
   private getTopRate() {
-    this.seriesService.seriesTopRate(this.page).subscribe(res => {
+    this.seriesService.seriesTopRate(this.page).subscribe((res) => {
       this.updateThisMovies(res);
-    })
+    });
   }
 
   private getAiringToday() {
-    this.seriesService.seriesAiringToday(this.page).subscribe(res => {
+    this.seriesService.seriesAiringToday(this.page).subscribe((res) => {
       this.updateThisMovies(res);
-    })
+    });
   }
 
-  private updateThisMovies(series: any){
+  private updateThisMovies(series: any) {
     this.stopMoreData(series);
-    this.series = [...this.series, ...series.results];
+    this.series = this.filterData([...this.series, ...series.results]);
+  }
+
+  private filterData(data: any[]): any[] {
+    return data.filter((movie) => movie.backdrop_path && movie.poster_path);
   }
 
   //------INFINITE SCROLL-----------
-  private stopMoreData(series: any): void{
-    this.totalPage = series.total_pages
+  private stopMoreData(series: any): void {
+    this.totalPage = series.total_pages;
     if (series.total_pages === this.page) {
-      this.moreData = false
+      this.moreData = false;
     }
   }
 
@@ -131,5 +133,4 @@ export class SeriesGridComponent implements OnInit {
     this.document.body.scrollTop = 0; // Safari
     this.document.documentElement.scrollTop = 0; // Other
   }
-
 }

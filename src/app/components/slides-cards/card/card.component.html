@@ -3,7 +3,7 @@
     <div class="card" [routerLink]="['/movies-details', popularMovies['id']]">
         <div class="content">
         <div class="img">
-            <img src="https://image.tmdb.org/t/p/w500/{{popularMovies.backdrop_path}}" alt="" />
+            <img src="https://image.tmdb.org/t/p/w500/{{popularMovies.poster_path}}" alt="" />
         </div>
         <div class="details">
             <div class="name"*ngIf="popularMovies['name']">{{popularMovies['name'] | slice:0:35}}</div>
@@ -27,7 +27,7 @@
     <div class="card" *ngIf=" trending['media_type'] == 'movie' " [routerLink]="['/movies-details', trending['id']]" [ngIfElse]="Serie">
         <div class="content">
         <div class="img">
-            <img src="https://image.tmdb.org/t/p/w500/{{trending.backdrop_path}}" alt="" />
+            <img src="https://image.tmdb.org/t/p/w500/{{trending.poster_path}}" alt="" />
         </div>
         <div class="details">
             <div class="name"*ngIf="trending['title']">{{trending['title'] | slice:0:35}}</div>
@@ -50,7 +50,7 @@
     <div class="card" *ngIf=" trending['media_type'] == 'tv'" [routerLink]="['/series-details', trendingSerie['id']]" >
         <div class="content">
         <div class="img">
-            <img src="https://image.tmdb.org/t/p/w500/{{trendingSerie.backdrop_path}}" alt="" />
+            <img src="https://image.tmdb.org/t/p/w500/{{trendingSerie.poster_path}}" alt="" />
         </div>
         <div class="details">
             <div class="name"*ngIf="trendingSerie['name']">{{trendingSerie['name'] | slice:0:35}}</div>
@@ -73,7 +73,7 @@
     <div class="card" [routerLink]="['/series-details', popularTv['id']]">
         <div class="content">
         <div class="img">
-            <img src="https://image.tmdb.org/t/p/w500/{{popularTv.backdrop_path}}" alt="" />
+            <img src="https://image.tmdb.org/t/p/w500/{{popularTv.poster_path}}" alt="" />
         </div>
         <div class="details">
             <div class="name"*ngIf="popularTv['name']">{{popularTv['name'] | slice:0:35}}</div>

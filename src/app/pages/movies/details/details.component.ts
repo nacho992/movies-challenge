@@ -4,10 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { DetailsMovie } from 'src/app/interfaces/DetailsMovie.interface';
 
-import {
-  Cast,
-  ResponseCredits,
-} from 'src/app/interfaces/responseCredits.interface';
+import { Cast } from 'src/app/interfaces/responseCredits.interface';
 import { Result } from 'src/app/interfaces/ResponseVideos.interface';
 import { TmdbService } from 'src/app/services/tmdb.service';
 import { ToastService } from 'src/app/services/toast.service';
@@ -40,8 +37,8 @@ export class DetailsComponent implements OnInit {
         this.error = false;
         this.tmdbService
           .getCreditsTvOrMovies(id, 'movie')
-          .subscribe((res: ResponseCredits) => {
-            this.credits = res.cast;
+          .subscribe((res: Cast[]) => {
+            this.credits = res;
           });
       },
       (err) => {

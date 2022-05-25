@@ -1,6 +1,6 @@
 .card {
-  height: 250px;
-  width: 170px;
+  height: 350px;
+  width: 200px;
   border-radius: 12px;
   margin: 15px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
@@ -19,6 +19,7 @@
     .details {
       margin: auto;
       padding: 5px;
+      flex: 1 1 auto;
       .card__rating {
         $size: 30px;
         bottom: $size/10;
@@ -31,21 +32,20 @@
         width: $size;
 
         &:after {
-            border-radius: 100%;
-            border: 2px solid #ee927b;
-            content: '';
-            height: 100%;
-            left: 0;
-            position: absolute;
-            top: 0;
-            width: 100%;
+          border-radius: 100%;
+          border: 2px solid #ee927b;
+          content: "";
+          height: 100%;
+          left: 0;
+          position: absolute;
+          top: 0;
+          width: 100%;
         }
         // &:after
-
       }
     }
     .img {
-      height: 160px;
+      height: 260px;
       width: 100%;
       background: #ff676d;
       margin-bottom: 5px;
@@ -58,11 +58,11 @@
       }
     }
     .name {
-      font-size: 1rem;
+      font-size: 0.9rem;
       font-weight: 500;
     }
     .job {
-      font-size: 1rem;
+      font-size: 0.9rem;
       color: var(--secondary-color);
     }
     .multi-button-more {
@@ -91,7 +91,7 @@
         box-shadow: 0 0 2rem -1rem rgba(0, 0, 0, 0.05);
         &:hover {
           //background:var(--text);
-          background: #ff9191;
+          background: var(--secondary-color);
           color: var(--background);
           box-shadow: 0 0 2rem -1rem rgba(0, 0, 0, 0.05);
         }

@@ -51,10 +51,15 @@ export class SearchResultComponent implements OnInit {
               this.moreData = false
             }
             this.movies = [ ...this.movies,...res.results]
+            this.filterMovies();
             this.movies$.next(this.movies)
           });
       }
     });
+  }
+
+  private filterMovies(): void{
+    this.movies = this.movies.filter( movie => movie.backdrop_path && movie.poster_path )
   }
 
   private onUrlChanged(): void {

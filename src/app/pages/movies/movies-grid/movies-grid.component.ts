@@ -23,7 +23,7 @@ export class MoviesGridComponent implements OnInit {
   public showGoUpButton = false;
   private page = 1;
   public totalPage;
- /* ------------------ */
+  /* ------------------ */
 
   constructor(
     private moviesService: MoviesService,
@@ -44,7 +44,7 @@ export class MoviesGridComponent implements OnInit {
         //reset
         this.movies = [];
         this.titlePage = '';
-        this.page = 1
+        this.page = 1;
         this.getData();
       });
   }
@@ -68,37 +68,40 @@ export class MoviesGridComponent implements OnInit {
         break;
       }
     }
-
   }
 
   private getPopulars() {
-    this.moviesService.getPopularMovies(this.page).subscribe(res => {
+    this.moviesService.getPopularMovies(this.page).subscribe((res) => {
       this.updateThisMovies(res);
-    })
+    });
   }
 
   private getTopRate() {
-    this.moviesService.moviesTopRate(this.page).subscribe(res => {
+    this.moviesService.moviesTopRate(this.page).subscribe((res) => {
       this.updateThisMovies(res);
-    })
+    });
   }
 
   private getUpComing() {
-    this.moviesService.moviesUpcoming(this.page).subscribe(res => {
+    this.moviesService.moviesUpcoming(this.page).subscribe((res) => {
       this.updateThisMovies(res);
-    })
+    });
   }
 
-  private updateThisMovies(movies: ResponseMovies){
+  private updateThisMovies(movies: ResponseMovies) {
     this.stopMoreData(movies);
-    this.movies = [...this.movies, ...movies.results];
+    this.movies = this.filterData([...this.movies, ...movies.results]);
+  }
+
+  private filterData(data: any[]): any[] {
+    return data.filter((movie) => movie.backdrop_path && movie.poster_path);
   }
 
   //------INFINITE SCROLL-----------
-  private stopMoreData(movies: ResponseMovies): void{
-    this.totalPage = movies.total_pages
+  private stopMoreData(movies: ResponseMovies): void {
+    this.totalPage = movies.total_pages;
     if (movies.total_pages === this.page) {
-      this.moreData = false
+      this.moreData = false;
     }
   }
 

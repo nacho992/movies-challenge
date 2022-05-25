@@ -1,6 +1,8 @@
 .card {
     --background:#FFFFFF;
     --text:black;
+    display: flex;
+    flex-direction: column;
     height: 350px;
     width: 200px;
     border-radius: 0.50rem;
@@ -10,6 +12,12 @@
         box-shadow: 0 1px 20px var(--secondary-color);
         transition: all 0.5s ease-out;
         cursor: pointer;
+    }
+    .card-body{
+        flex: 1 1 auto;
+    }
+    .card_title{
+        font-size: 0.9rem;
     }
     img{
         border-radius: 5px;

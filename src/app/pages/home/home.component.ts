@@ -29,13 +29,13 @@ export class HomeComponent implements OnInit {
 
   public getTvPopular(): void{
     this.tmbdService.getPopularTv().subscribe( (res:ResponsePopularTv) => {
-      this.popularTv = [...res.results]
+      this.popularTv = this.filterData([...res.results]);
     })
   }
 
   public getMoviePopular(): void{
     this.tmbdService.getPopularMovies(1).subscribe( (res:ResponseMovies) => {
-      this.popularMovies = [...res.results]
+      this.popularMovies = this.filterData([...res.results]);
     })
   }
 
@@ -50,4 +50,7 @@ export class HomeComponent implements OnInit {
     })
   }
 
+  private filterData(data: any[]): any[]{
+    return data.filter( movie => movie.backdrop_path && movie.poster_path )
+  }
 }
