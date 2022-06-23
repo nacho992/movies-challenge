@@ -20,7 +20,6 @@ export class CircleRatingComponent implements OnInit {
 
   public getColorRating(): string {
     if (this.rating < 5) {
-      console.log(this.red);
       return this.red;
     }
     if (this.rating >= 5 && this.rating <= 7) {
