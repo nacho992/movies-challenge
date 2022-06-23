@@ -1,52 +1,52 @@
 .card {
-    --background:#FFFFFF;
-    --text:black;
-    height: 350px;
-    width: 200px;
-    display: flex;
-    flex-direction: column;
-    border-radius: 0.50rem;
-    margin: 0.75rem;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
-    &:hover {
-        box-shadow: 0 1px 20px var(--secondary-color);
-        transition: all 0.5s ease-out;
-        cursor: pointer;
+  --background: #ffffff;
+  --text: black;
+  height: 350px;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 0.5rem;
+  margin: 0.75rem;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
+  &:hover {
+    box-shadow: 0 1px 20px var(--secondary-color);
+    transition: all 0.5s ease-out;
+    cursor: pointer;
+  }
+  .card-body {
+    flex: 1 1 auto;
+  }
+  .card_title {
+    font-size: 0.9rem;
+  }
+  img {
+    border-radius: 5px;
+    height: 250px;
+    object-fit: cover;
+  }
+  p {
+    font-size: 0.8rem;
+    color: var(--secondary-color);
+  }
+  /* .card__rating {
+    $size: 30px;
+    bottom: $size/10;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: $size;
+    position: absolute;
+    right: $size/10;
+    text-align: center;
+    width: $size;
+    &:after {
+      border-radius: 100%;
+      border: 2px solid #7b7cee;
+      content: "";
+      height: 100%;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
     }
-    .card-body{
-        flex: 1 1 auto;
-    }
-    .card_title{
-        font-size: 0.9rem;
-    }
-    img{
-        border-radius: 5px;
-        height: 250px;
-        object-fit: cover;
-    }
-    p{
-        font-size: 0.80rem;
-        color: var(--secondary-color);
-    }
-    .card__rating {
-        $size: 30px;
-        bottom: $size/10;
-        font-size: 12px;
-        font-weight: 700;
-        line-height: $size;
-        position: absolute;
-        right: $size/10;
-        text-align: center;
-        width: $size;
-        &:after {
-            border-radius: 100%;
-            border: 2px solid #7b7cee;
-            content: '';
-            height: 100%;
-            left: 0;
-            position: absolute;
-            top: 0;
-            width: 100%;
-        }
-      }
+  } */
 }

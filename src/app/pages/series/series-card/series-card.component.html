@@ -4,9 +4,7 @@
   <div class="card-body">
     <div class="card_title">{{serie['name']}}</div>
     <p *ngIf="serie['release_date']">{{serie['release_date']}}</p>
-    <div class="card__rating">
-        {{serie['vote_average']}}
-    </div> 
+    <app-circle-rating [rating]="serie['vote_average']"></app-circle-rating>
   </div>
        
 </div>

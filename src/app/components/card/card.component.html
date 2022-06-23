@@ -23,9 +23,7 @@
           {{ movie["title"] | slice: 0:30 }}
         </div>
         <div class="job">{{ movie["release_date"] | date }}</div>
-        <div class="card__rating">
-          {{ movie["vote_average"] }}
-        </div>
+        <app-circle-rating [rating]="movie['vote_average']"></app-circle-rating>
       </div>
     </div>
   </div>
@@ -54,9 +52,7 @@
           {{ movie["title"] }}
         </div>
         <div class="job">{{ movie["release_date"] | date }}</div>
-        <div class="card__rating">
-          {{ movie["vote_average"] }}
-        </div>
+        <app-circle-rating [rating]="movie['vote_average']"></app-circle-rating>
       </div>
     </div>
   </div>

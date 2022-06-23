@@ -1,12 +1,18 @@
 <div class="card" [routerLink]="['/movies-details', movie['id']]">
-  <img *ngIf="movie.poster_path; else backdrop" src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}" alt=""/>
-  <img #backdrop *ngIf="!movie.poster_path" src="https://image.tmdb.org/t/p/w500/{{movie.backdrop_path}}" alt=""/>
+  <img
+    *ngIf="movie.poster_path; else backdrop"
+    src="https://image.tmdb.org/t/p/w500/{{ movie.poster_path }}"
+    alt=""
+  />
+  <img
+    #backdrop
+    *ngIf="!movie.poster_path"
+    src="https://image.tmdb.org/t/p/w500/{{ movie.backdrop_path }}"
+    alt=""
+  />
   <div class="card-body">
-    <div class="card_title">{{movie['title']}}</div>
-    <p *ngIf="movie['release_date']">{{movie['release_date']}}</p>
-    <div class="card__rating">
-        {{movie['vote_average']}}
-    </div> 
+    <div class="card_title">{{ movie["title"] }}</div>
+    <p *ngIf="movie['release_date']">{{ movie["release_date"] }}</p>
+    <app-circle-rating [rating]="movie['vote_average']"></app-circle-rating>
   </div>
-       
 </div>

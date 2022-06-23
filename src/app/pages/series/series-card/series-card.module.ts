@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SeriesCardComponent } from './series-card.component';
 import { RouterModule } from '@angular/router';
+import { CircleRatingModule } from 'src/app/components/circle-rating/circle-rating.module';
 
 
 
@@ -11,7 +12,8 @@ import { RouterModule } from '@angular/router';
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    CircleRatingModule
   ],
   exports: [
     SeriesCardComponent
